@@ -1,23 +1,26 @@
 import type { Metadata } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Star Smiles Dental Care | Premium Dental Care & Aesthetics",
-  description: "Experience world-class dental care with Star Smiles Dental Care. Specialized in cosmetic dentistry, implants, and advanced oral health in a premium, patient-centric environment.",
+  title: "Dental Clinic Manikonda | Advanced Dental Care Hyderabad",
+  description:
+    "Complete oral healthcare in Manikonda, Hyderabad—preventive, restorative, cosmetic, and emergency dental care with advanced technology and a patient-first approach.",
   viewport: "width=device-width, initial-scale=1",
-  keywords: ["dental clinic", "cosmetic dentistry", "dental implants", "premium dental care", "teeth whitening", "Star Smiles"],
+  keywords: [
+    "dental clinic Manikonda",
+    "dentist Hyderabad",
+    "dental implants",
+    "invisible aligners",
+    "kids dentist",
+    "emergency dentist",
+  ],
 };
 
 export default function RootLayout({
@@ -28,12 +31,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${inter.variable} h-full antialiased scroll-smooth`}
+      className={`${poppins.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-sans selection:bg-primary/20 selection:text-primary">
         {children}
         <a 
-          href="https://wa.me/1234567890" 
+          href="https://wa.me/918867462440" 
           target="_blank" 
           rel="noopener noreferrer"
           className="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 group"

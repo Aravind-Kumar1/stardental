@@ -32,8 +32,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
     { name: "About Us", href: "/about" },
+    { name: "Services", href: "/services" },
     { name: "Cases", href: "/cases" },
     { name: "FAQ", href: "/faq" },
   ];
@@ -69,9 +69,9 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <a href="tel:+1234567890" className="flex items-center gap-2 text-secondary font-semibold hover:text-primary transition-colors mr-4">
+          <a href="tel:+918867462440" className="flex items-center gap-2 text-secondary font-semibold hover:text-primary transition-colors mr-4">
             <Phone size={18} className="fill-primary text-primary" />
-            <span>+1 (234) 567-890</span>
+            <span>+91 88674 62440</span>
           </a>
           <Button variant="primary" size="md" className="gap-2">
             <Calendar size={18} />
@@ -108,9 +108,9 @@ const Navbar = () => {
           ))}
           <hr className="border-muted" />
           <div className="flex flex-col gap-4">
-            <a href="tel:+1234567890" className="flex items-center gap-3 text-secondary font-semibold">
+            <a href="tel:+918867462440" className="flex items-center gap-3 text-secondary font-semibold">
               <Phone size={20} className="text-primary" />
-              +1 (234) 567-890
+              +91 88674 62440
             </a>
             <Button variant="primary" className="w-full text-center py-4">
               Book Appointment

@@ -63,7 +63,7 @@ const Footer = () => {
                  </div>
                  <div>
                     <div className="font-bold mb-1">Clinic Address</div>
-                    <div className="text-slate-400">123 Aesthetic Plaza, Luxury Row, Downtown City, 90210</div>
+                    <div className="text-slate-400">Manikonda, Hyderabad, Telangana</div>
                  </div>
               </div>
               <div className="flex gap-4">
@@ -72,7 +72,9 @@ const Footer = () => {
                  </div>
                  <div>
                     <div className="font-bold mb-1">Direct Help</div>
-                    <div className="text-slate-400">+1 (234) 567-890</div>
+                    <a href="tel:+918867462440" className="text-slate-400 hover:text-primary transition-colors">
+                      +91 88674 62440
+                    </a>
                  </div>
               </div>
               <div className="flex gap-4">
@@ -109,7 +111,7 @@ const Footer = () => {
 
         {/* Bottom Footer */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 text-sm font-medium">
-          <div>© 2024 Star Smiles Dental Care. All rights reserved. Built for Excellence.</div>
+          <div>© {new Date().getFullYear()} Dental Clinic Manikonda. All rights reserved.</div>
           <div className="flex gap-12">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>

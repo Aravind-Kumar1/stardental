@@ -23,14 +23,15 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
 
-  --font-sans: "Inter", var(--font-geist-sans), sans-serif;
-  --font-display: "Outfit", var(--font-geist-sans), sans-serif;
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
 
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
   
-  --shadow-premium: 0 10px 40px -10px rgba(14, 165, 233, 0.1);
+  --shadow-premium: 0 10px 40px -10px rgba(14, 165, 233, 0.15);
   --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  --shadow-card-hover: 0 20px 40px -15px rgba(15, 23, 42, 0.1);
 }
 
 @layer base {
@@ -42,7 +43,7 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight font-semibold;
+    @apply font-display tracking-tight font-bold;
   }
 }
 
@@ -51,10 +52,36 @@
 }
 
 .section-padding {
-  @apply py-20 lg:py-32 px-6 lg:px-12;
+  @apply py-20 lg:py-24 px-6 lg:px-12;
 }
 
 .container-custom {
-  @apply max-w-7xl mx-auto;
+  @apply max-w-7xl mx-auto w-full px-4 sm:px-6;
+}
+
+/* Typography Consistency */
+.heading-hero {
+  @apply text-3xl sm:text-4xl lg:text-[3.25rem] font-bold text-secondary leading-[1.1] tracking-tight mb-6;
+}
+
+.heading-section {
+  @apply text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-secondary leading-[1.2] mb-4;
+}
+
+.text-body {
+  @apply text-[0.9375rem] sm:text-base lg:text-[1.0625rem] text-muted-foreground leading-relaxed;
+}
+
+.text-body-small {
+  @apply text-sm text-muted-foreground leading-relaxed;
+}
+
+/* Premium Card Style */
+.premium-card {
+  @apply bg-white rounded-2xl border border-border/40 shadow-card hover:shadow-card-hover transition-all duration-300;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent;
 }
 

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Phone, Calendar, ArrowRight, MessageCircle } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const CTA = () => {
   return (
@@ -27,9 +28,9 @@ const CTA = () => {
              whileInView={{ opacity: 1, y: 0, scale: 1 }}
              viewport={{ once: true }}
              transition={{ delay: 0.1, duration: 0.8 }}
-             className="text-5xl lg:text-7xl font-display font-bold mb-10 leading-tight"
+             className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-8 leading-tight"
            >
-              Experience the Pinnacle of <span className="text-secondary italic">Aesthetic Dental Care</span>.
+              Book your <span className="text-secondary">appointment</span> today
            </motion.h2>
 
            <motion.p 
@@ -37,27 +38,36 @@ const CTA = () => {
              whileInView={{ opacity: 1, scale: 1 }}
              viewport={{ once: true }}
              transition={{ delay: 0.2, duration: 0.8 }}
-             className="text-xl text-white/80 mb-16 leading-relaxed max-w-2xl mx-auto"
+             className="text-xl text-white/85 mb-14 leading-relaxed max-w-2xl mx-auto"
            >
-             Book your consultation today and take the first step towards the smile you've always dreamed of with our award-winning specialists.
+             Get treated by experienced dentists in Manikonda with advanced and painless dental care.
            </motion.p>
 
            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button variant="secondary" size="xl" className="group">
-                 Book My Appointment
+                 Book appointment
                  <ArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="xl" className="border-white text-white hover:bg-white hover:text-primary backdrop-blur-sm">
-                 <MessageCircle className="mr-3" />
-                 WhatsApp Specialist
-              </Button>
+              <a
+                href="https://wa.me/918867462440"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "inline-flex items-center justify-center rounded-xl transition-all active:scale-[0.98]",
+                  "border border-white text-white hover:bg-white hover:text-primary backdrop-blur-sm",
+                  "px-10 py-5 text-xl font-bold w-full sm:w-auto"
+                )}
+              >
+                <MessageCircle className="mr-3" />
+                WhatsApp us
+              </a>
            </div>
 
-           <div className="mt-16 flex flex-wrap justify-center gap-12 text-white/70">
-              <div className="flex items-center gap-3">
+           <div className="mt-16 flex flex-wrap justify-center gap-12 text-white/80">
+              <a href="tel:+918867462440" className="flex items-center gap-3 hover:text-white transition-colors">
                  <Phone size={24} />
-                 <span className="font-bold text-lg">+1 (234) 567-890</span>
-              </div>
+                 <span className="font-bold text-lg">+91 88674 62440</span>
+              </a>
               <div className="flex items-center gap-3">
                  <Calendar size={24} />
                  <span className="font-bold text-lg">Mon-Sat: 09:00 - 20:00</span>
