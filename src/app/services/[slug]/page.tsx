@@ -1,29 +1,22 @@
-"use client";
-
-import { useParams } from "next/navigation";
 import { services } from "@/lib/services";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTA from "@/components/sections/CTA";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { CheckCircle, ArrowLeft, Phone, Calendar } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-import { useEffect } from "react";
 
 const PHONE_DISPLAY = "+91 88674 62440";
 const PHONE_HREF = "tel:+918867462440";
 
-export default function ServiceDetailPage() {
-  const params = useParams();
-  const slug = params.slug;
-  const service = services.find((s) => s.slug === slug);
+type ServiceDetailPageProps = {
+  params: Promise<{ slug: string }>;
+};
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+export default async function ServiceDetailPage({ params }: ServiceDetailPageProps) {
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
 
   if (!service) {
     return (
@@ -53,11 +46,7 @@ export default function ServiceDetailPage() {
           </Link>
           
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="max-w-xl"
-            >
+            <div className="max-w-xl">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary mb-6 tracking-tight leading-tight">
                 {service.detailHeading}
               </h1>
@@ -65,9 +54,12 @@ export default function ServiceDetailPage() {
                 {service.description}
               </p>
               <div className="flex flex-wrap gap-4">
-                 <Button variant="primary" size="lg" className="rounded-2xl px-8 h-auto py-5 text-base font-bold shadow-premium">
+                 <Link
+                   href={`/book-appointment?service=${encodeURIComponent(service.title)}`}
+                   className="inline-flex items-center justify-center rounded-2xl transition-all active:scale-[0.98] bg-primary text-white hover:bg-primary-dark shadow-premium px-8 py-5 text-base font-bold"
+                 >
                    Book Appointment
-                 </Button>
+                 </Link>
                  <a
                     href={PHONE_HREF}
                     className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-white px-8 py-5 text-base font-bold text-secondary hover:bg-slate-50 transition-all"
@@ -76,14 +68,9 @@ export default function ServiceDetailPage() {
                     Consult Now
                   </a>
               </div>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white"
-            >
+              </div>
+
+              <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
                <Image
                   src={service.imageUrl}
                   alt={service.title}
@@ -92,7 +79,7 @@ export default function ServiceDetailPage() {
                   priority
                />
                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
-            </motion.div>
+              </div>
           </div>
         </div>
         <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -z-0 -translate-x-1/2 -translate-y-1/2" />
@@ -100,12 +87,7 @@ export default function ServiceDetailPage() {
 
       <section className="py-16 lg:py-20">
         <div className="container-custom grid lg:grid-cols-12 gap-12 lg:gap-16 px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-7"
-          >
+          <div className="lg:col-span-7">
             <h2 className="heading-section">Treatment Overview</h2>
             <p className="text-body mb-10">{service.longDescription}</p>
             
@@ -127,14 +109,9 @@ export default function ServiceDetailPage() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-5 relative"
-          >
+          <div className="lg:col-span-5 relative">
             <div className="sticky top-28 bg-white rounded-[2rem] p-8 lg:p-10 shadow-card border border-border/40 overflow-hidden group">
               <div className="relative z-10 text-center lg:text-left">
                 <h3 className="text-2xl font-bold text-secondary mb-4">
@@ -144,10 +121,13 @@ export default function ServiceDetailPage() {
                   Get treated by clinical experts in Manikonda using the most advanced and painless dental technology.
                 </p>
                 <div className="space-y-4">
-                  <Button variant="primary" size="lg" className="w-full text-base py-5 h-auto font-bold rounded-xl shadow-lg shadow-primary/20">
+                  <Link
+                    href={`/book-appointment?service=${encodeURIComponent(service.title)}`}
+                    className="inline-flex items-center justify-center w-full rounded-xl transition-all active:scale-[0.98] bg-primary text-white hover:bg-primary-dark shadow-lg shadow-primary/20 px-8 py-5 text-base font-bold"
+                  >
                     <Calendar size={18} className="mr-2" />
                     Book Free Consultation
-                  </Button>
+                  </Link>
                   <a
                     href={PHONE_HREF}
                     className={cn(
@@ -163,7 +143,7 @@ export default function ServiceDetailPage() {
               </div>
               <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-primary/5 rounded-full blur-3xl z-0 transition-transform group-hover:scale-150 duration-700" />
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 

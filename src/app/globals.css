@@ -78,10 +78,18 @@
 
 /* Premium Card Style */
 .premium-card {
-  @apply bg-white rounded-2xl border border-border/40 shadow-card hover:shadow-card-hover transition-all duration-300;
+  @apply bg-white rounded-2xl border border-border/40 shadow-card transition-all duration-300;
 }
 
 .gradient-text {
   @apply bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent;
 }
 
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.02);
+  }
+}

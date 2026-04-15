@@ -7,6 +7,8 @@ import {
   Eye,
   Stethoscope,
   HeartHandshake,
+  ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -71,18 +73,18 @@ export default function AboutFull() {
       </section>
 
       <section className="section-padding bg-slate-50/80 border-y border-border/60">
-        <div className="container-custom grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="container-custom max-w-5xl grid md:grid-cols-2 gap-6 lg:gap-8">
           <motion.article
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-10 shadow-card border border-border/50"
+            className="bg-white rounded-3xl p-8 lg:p-9 shadow-card border border-border/50 h-full"
           >
-            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
-              <Target className="text-primary" size={28} />
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
+              <ShieldCheck className="text-primary" size={28} />
             </div>
-            <h3 className="text-2xl font-display font-bold text-secondary mb-4">Our mission</h3>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <h3 className="text-2xl font-display font-bold text-secondary mb-3">Our mission</h3>
+            <p className="text-muted-foreground text-[1.05rem] leading-relaxed">
               To provide high-quality, affordable, and painless dental care while ensuring every
               patient feels comfortable and confident about their smile.
             </p>
@@ -92,13 +94,13 @@ export default function AboutFull() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.08 }}
-            className="bg-white rounded-3xl p-10 shadow-card border border-border/50"
+            className="bg-white rounded-3xl p-8 lg:p-9 shadow-card border border-border/50 h-full"
           >
-            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
-              <Eye className="text-primary" size={28} />
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
+              <Sparkles className="text-primary" size={28} />
             </div>
-            <h3 className="text-2xl font-display font-bold text-secondary mb-4">Our vision</h3>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <h3 className="text-2xl font-display font-bold text-secondary mb-3">Our vision</h3>
+            <p className="text-muted-foreground text-[1.05rem] leading-relaxed">
               To become the most trusted dental clinic in Hyderabad by delivering advanced
               treatments with a patient-first approach.
             </p>

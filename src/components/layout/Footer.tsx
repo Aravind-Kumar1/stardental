@@ -1,8 +1,20 @@
-"use client";
-
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Facebook, Instagram, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { services } from "@/lib/services";
+
+const SOCIAL_LINKS = [
+  {
+    Icon: Facebook,
+    href: "https://www.facebook.com/StarSmilesDentalCare/",
+    label: "Facebook",
+  },
+  {
+    Icon: Instagram,
+    href: "https://www.instagram.com/starsmilesdentalcare/?next=%2F",
+    label: "Instagram",
+  },
+];
 
 const Footer = () => {
   return (
@@ -25,8 +37,15 @@ const Footer = () => {
               Redefining dental excellence with a fusion of advanced technology and personalized aesthetic vision.
             </p>
             <div className="flex gap-4">
-              {[Facebook, Instagram, Twitter, Linkedin].map((Icon, index) => (
-                <a key={index} href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all">
+              {SOCIAL_LINKS.map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href === "#" ? undefined : "_blank"}
+                  rel={href === "#" ? undefined : "noopener noreferrer"}
+                  aria-label={label}
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all"
+                >
                   <Icon size={18} />
                 </a>
               ))}
@@ -39,10 +58,12 @@ const Footer = () => {
             <div className="flex flex-col gap-6 text-slate-400 font-medium">
               {[
                 { name: "Home", href: "/" },
-                { name: "Our Services", href: "/services" },
-                { name: "Specialist Team", href: "/about" },
-                { name: "Transformation Gallery", href: "/cases" },
-                { name: "Patient Care", href: "/faq" },
+                { name: "About Us", href: "/about" },
+                { name: "Services", href: "/services" },
+                { name: "Blogs", href: "/blogs" },
+                { name: "Cases", href: "/cases" },
+                { name: "FAQ", href: "/faq" },
+                { name: "Book Appointment", href: "/book-appointment" },
                 { name: "Contact Us", href: "/#contact" }
               ].map((link) => (
                 <Link key={link.name} href={link.href} className="hover:text-primary transition-colors flex items-center gap-2 group">
@@ -53,58 +74,63 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Info */}
+          {/* Services Links */}
           <div className="flex flex-col gap-8">
-            <div className="font-bold text-xl mb-4">Visit Our Clinic</div>
-            <div className="flex flex-col gap-10">
-              <div className="flex gap-4">
-                 <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-primary shrink-0 transition-transform hover:scale-110">
-                    <MapPin size={22} />
-                 </div>
-                 <div>
-                    <div className="font-bold mb-1">Clinic Address</div>
-                    <div className="text-slate-400">Manikonda, Hyderabad, Telangana</div>
-                 </div>
-              </div>
-              <div className="flex gap-4">
-                 <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-primary shrink-0 transition-transform hover:scale-110">
-                    <Phone size={22} />
-                 </div>
-                 <div>
-                    <div className="font-bold mb-1">Direct Help</div>
-                    <a href="tel:+918867462440" className="text-slate-400 hover:text-primary transition-colors">
-                      +91 88674 62440
-                    </a>
-                 </div>
-              </div>
-              <div className="flex gap-4">
-                 <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-primary shrink-0 transition-transform hover:scale-110">
-                    <Mail size={22} />
-                 </div>
-                 <div>
-                    <div className="font-bold mb-1">Official Support</div>
-                    <div className="text-slate-400">care@starsmiles.com</div>
-                 </div>
-              </div>
+            <div className="font-bold text-xl mb-4">Our Services</div>
+            <div className="flex flex-col gap-4 text-slate-400 font-medium">
+              {services.map((service) => (
+                <Link
+                  key={service.title}
+                  href={`/services/${service.slug}`}
+                  className="hover:text-primary transition-colors flex items-center gap-2 group"
+                >
+                  {service.title}
+                  <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              ))}
             </div>
           </div>
 
-          {/* Newsletter */}
+          {/* Contact Info */}
           <div className="flex flex-col gap-8">
-            <div className="font-bold text-xl mb-4">Dental Health Insights</div>
-            <p className="text-slate-400 leading-relaxed font-medium mb-4">
-              Subscribe to our medical insights for the latest in dental aesthetics and oral wellness.
-            </p>
-            <div className="relative group">
-              <input 
-                type="email" 
-                placeholder="Email Address"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-4 focus:outline-none focus:border-primary transition-all text-white placeholder-slate-500"
-              />
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary transition-all" size={18} />
-              <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-white p-2 rounded-lg hover:bg-primary-dark transition-all">
-                 <ArrowUpRight size={18} />
-              </button>
+            <div className="font-bold text-xl mb-4">Visit Our Clinic</div>
+            <div className="flex flex-col gap-5">
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 bg-white/5 rounded-xl flex items-center justify-center text-primary shrink-0 transition-transform hover:scale-110 mt-0.5">
+                    <MapPin size={22} />
+                 </div>
+                <div className="min-w-0">
+                  <div className="font-bold mb-1 text-base">Clinic Address</div>
+                  <div className="text-slate-400 text-sm leading-6 max-w-[18rem]">
+                   Alkapur Township, Huda, Mahalneknapur, Manikonda, Hyderabad, Telangana - 500089
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 bg-white/5 rounded-xl flex items-center justify-center text-primary shrink-0 transition-transform hover:scale-110 mt-0.5">
+                    <Phone size={22} />
+                 </div>
+                <div className="min-w-0">
+                  <div className="font-bold mb-1 text-base">Direct Help</div>
+                  <a href="tel:+919030271023" className="text-slate-400 hover:text-primary transition-colors block text-sm leading-6">
+                      +91-9030271023
+                    </a>
+                  <a href="tel:+917416860888" className="text-slate-400 hover:text-primary transition-colors block text-sm leading-6">
+                      +91-7416860888
+                    </a>
+                 </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 bg-white/5 rounded-xl flex items-center justify-center text-primary shrink-0 transition-transform hover:scale-110 mt-0.5">
+                    <Mail size={22} />
+                 </div>
+                <div className="min-w-0">
+                  <div className="font-bold mb-1 text-base">Official Support</div>
+                  <a href="mailto:starsmilesdentalcare@gmail.com" className="text-slate-400 hover:text-primary transition-colors block text-sm leading-6 whitespace-nowrap">
+                      starsmilesdentalcare@gmail.com
+                    </a>
+                 </div>
+              </div>
             </div>
           </div>
         </div>

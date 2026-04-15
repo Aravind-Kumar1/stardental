@@ -16,8 +16,8 @@ const About = () => {
   return (
     <section id="about" className="section-padding overflow-hidden">
       <div className="container-custom">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-14 items-center max-w-5xl mx-auto">
-          <div className="w-full lg:w-[45%] relative shrink-0">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="w-full lg:w-1/2 relative shrink-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -25,10 +25,10 @@ const About = () => {
               transition={{ duration: 0.7 }}
               className="relative z-10 rounded-2xl overflow-hidden shadow-2xl"
             >
-              <div className="aspect-[4/5] relative max-h-[480px]">
+              <div className="aspect-[4/5] relative">
                 <Image
-                  src="/images/doctor.png"
-                  alt="Dentist at our Manikonda clinic"
+                  src="/images/dental_doctor.jpeg"
+                  alt="Dr. Manjunatha Reddy - Expert Dentist"
                   fill
                   className="object-cover"
                 />
@@ -38,13 +38,13 @@ const About = () => {
             <div className="absolute -bottom-20 -right-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl z-0" />
           </div>
 
-          <div className="w-full lg:w-[55%] min-w-0">
+          <div className="w-full lg:w-1/2 min-w-0">
             <motion.div
               initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="max-w-md"
+              className="w-full"
             >
               <p className="text-primary font-bold text-xs tracking-[0.2em] uppercase mb-4">
                 About us
