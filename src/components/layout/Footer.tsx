@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Facebook, Instagram, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import { services } from "@/lib/services";
+import { servicesData } from "@/lib/services-data";
 
 const SOCIAL_LINKS = [
   {
@@ -78,7 +78,7 @@ const Footer = () => {
           <div className="flex flex-col gap-8">
             <div className="font-bold text-xl mb-4">Our Services</div>
             <div className="flex flex-col gap-4 text-slate-400 font-medium">
-              {services.map((service) => (
+              {servicesData.map((service) => (
                 <Link
                   key={service.title}
                   href={`/services/${service.slug}`}
@@ -95,6 +95,22 @@ const Footer = () => {
           <div className="flex flex-col gap-8">
             <div className="font-bold text-xl mb-4">Visit Our Clinic</div>
             <div className="flex flex-col gap-5">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Alkapur+Township+Huda+Mahalneknapur+Manikonda+Hyderabad+Telangana+500089"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl overflow-hidden border border-white/10 hover:border-primary/60 transition-colors"
+                aria-label="Open clinic location on Google Maps"
+              >
+                <iframe
+                  title="Clinic location map"
+                  src="https://www.google.com/maps?q=Alkapur+Township+Huda+Mahalneknapur+Manikonda+Hyderabad+Telangana+500089&z=15&output=embed"
+                  className="w-full h-44"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </a>
+
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 bg-white/5 rounded-xl flex items-center justify-center text-primary shrink-0 transition-transform hover:scale-110 mt-0.5">
                     <MapPin size={22} />
@@ -113,10 +129,7 @@ const Footer = () => {
                 <div className="min-w-0">
                   <div className="font-bold mb-1 text-base">Direct Help</div>
                   <a href="tel:+919030271023" className="text-slate-400 hover:text-primary transition-colors block text-sm leading-6">
-                      +91-9030271023
-                    </a>
-                  <a href="tel:+917416860888" className="text-slate-400 hover:text-primary transition-colors block text-sm leading-6">
-                      +91-7416860888
+                      +91 90302 71023
                     </a>
                  </div>
               </div>

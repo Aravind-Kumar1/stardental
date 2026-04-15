@@ -1,4 +1,5 @@
-import { services } from "@/lib/services";
+import { notFound } from "next/navigation";
+import { servicesData } from "@/lib/services-data";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTA from "@/components/sections/CTA";
@@ -10,26 +11,25 @@ import { cn } from "@/lib/utils";
 const PHONE_DISPLAY = "+91 88674 62440";
 const PHONE_HREF = "tel:+918867462440";
 
+/** Pre-render every service page at build time so navigation is static HTML, not on-demand SSR. */
+export function generateStaticParams() {
+  return servicesData.map(({ slug }) => ({ slug }));
+}
+
+export const dynamicParams = false;
+
 type ServiceDetailPageProps = {
   params: Promise<{ slug: string }>;
 };
 
 export default async function ServiceDetailPage({ params }: ServiceDetailPageProps) {
   const { slug } = await params;
-  const service = services.find((s) => s.slug === slug);
+  const service = servicesData.find((s) => s.slug === slug);
 
   if (!service) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-6">
-        <h1 className="text-2xl font-bold text-secondary">Service not found</h1>
-        <Link href="/services" className="text-primary font-semibold hover:underline">
-          Back to services
-        </Link>
-      </div>
-    );
+    notFound();
   }
 
-  const Icon = service.icon;
   const benefitsTitle = service.benefitsHeading ?? "Benefits";
 
   return (
@@ -39,12 +39,13 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
       <div className="pt-24 pb-12 lg:pt-32 lg:pb-16 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden border-b border-border/40">
         <div className="container-custom relative z-10 px-6">
           <Link
-            href="/#services"
+            href="/services"
+            prefetch
             className="inline-flex items-center gap-2 text-primary font-bold mb-8 hover:gap-3 transition-all text-sm uppercase tracking-widest"
           >
             <ArrowLeft size={16} /> Back to services
           </Link>
-          
+
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="max-w-xl">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary mb-6 tracking-tight leading-tight">
@@ -54,32 +55,35 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                 {service.description}
               </p>
               <div className="flex flex-wrap gap-4">
-                 <Link
-                   href={`/book-appointment?service=${encodeURIComponent(service.title)}`}
-                   className="inline-flex items-center justify-center rounded-2xl transition-all active:scale-[0.98] bg-primary text-white hover:bg-primary-dark shadow-premium px-8 py-5 text-base font-bold"
-                 >
-                   Book Appointment
-                 </Link>
-                 <a
-                    href={PHONE_HREF}
-                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-white px-8 py-5 text-base font-bold text-secondary hover:bg-slate-50 transition-all"
-                  >
-                    <Phone size={18} />
-                    Consult Now
-                  </a>
+                <Link
+                  href={`/book-appointment?service=${encodeURIComponent(service.title)}`}
+                  prefetch={false}
+                  className="inline-flex items-center justify-center rounded-2xl transition-all active:scale-[0.98] bg-primary text-white hover:bg-primary-dark shadow-premium px-8 py-5 text-base font-bold"
+                >
+                  Book Appointment
+                </Link>
+                <a
+                  href={PHONE_HREF}
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-white px-8 py-5 text-base font-bold text-secondary hover:bg-slate-50 transition-all"
+                >
+                  <Phone size={18} />
+                  Consult Now
+                </a>
               </div>
-              </div>
+            </div>
 
-              <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
-               <Image
-                  src={service.imageUrl}
-                  alt={service.title}
-                  fill
-                  className="object-cover"
-                  priority
-               />
-               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
-              </div>
+            <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
+              <Image
+                src={service.imageUrl}
+                alt={service.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
+                priority
+                quality={80}
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
+            </div>
           </div>
         </div>
         <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -z-0 -translate-x-1/2 -translate-y-1/2" />
@@ -90,12 +94,12 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
           <div className="lg:col-span-7">
             <h2 className="heading-section">Treatment Overview</h2>
             <p className="text-body mb-10">{service.longDescription}</p>
-            
+
             <h3 className="text-xl font-bold text-secondary mb-6 flex items-center gap-3">
               <div className="w-8 h-1 outline-primary bg-primary rounded-full" />
               {benefitsTitle}
             </h3>
-            
+
             <div className="grid sm:grid-cols-2 gap-4">
               {service.benefits.map((benefit, i) => (
                 <div
@@ -123,6 +127,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                 <div className="space-y-4">
                   <Link
                     href={`/book-appointment?service=${encodeURIComponent(service.title)}`}
+                    prefetch={false}
                     className="inline-flex items-center justify-center w-full rounded-xl transition-all active:scale-[0.98] bg-primary text-white hover:bg-primary-dark shadow-lg shadow-primary/20 px-8 py-5 text-base font-bold"
                   >
                     <Calendar size={18} className="mr-2" />

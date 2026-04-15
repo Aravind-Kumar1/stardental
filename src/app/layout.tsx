@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -13,7 +14,6 @@ export const metadata: Metadata = {
   title: "Dental Clinic Manikonda | Advanced Dental Care Hyderabad",
   description:
     "Complete oral healthcare in Manikonda, Hyderabad—preventive, restorative, cosmetic, and emergency dental care with advanced technology and a patient-first approach.",
-  viewport: "width=device-width, initial-scale=1",
   keywords: [
     "dental clinic Manikonda",
     "dentist Hyderabad",
@@ -22,6 +22,11 @@ export const metadata: Metadata = {
     "kids dentist",
     "emergency dentist",
   ],
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -35,7 +40,9 @@ export default function RootLayout({
       className={`${poppins.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-sans selection:bg-primary/20 selection:text-primary">
-        <ScrollToTop />
+        <Suspense fallback={null}>
+          <ScrollToTop />
+        </Suspense>
         {children}
         <a 
           href="https://wa.me/918867462440" 

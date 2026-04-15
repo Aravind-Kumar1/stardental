@@ -49,7 +49,7 @@ const CTA = () => {
            <div className="mt-16 flex flex-wrap justify-center gap-12 text-white/80">
                 <a href="tel:+919030271023" className="flex items-center gap-3 hover:text-white transition-colors">
                  <Phone size={24} />
-                  <span className="font-bold text-lg">+91-9030271023</span>
+                  <span className="font-bold text-lg">+91 90302 71023</span>
               </a>
               <div className="flex items-center gap-3">
                  <Calendar size={24} />

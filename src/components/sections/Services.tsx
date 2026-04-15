@@ -1,13 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SearchCheck } from "lucide-react";
-import { services } from "@/lib/services";
+import { servicesData } from "@/lib/services-data";
 
 const Services = () => {
-  const topRowServices = services.slice(0, 4);
-  const bottomRowServices = services.slice(4);
-
-  const renderCard = (service: (typeof services)[number]) => (
+  const renderCard = (service: (typeof servicesData)[number]) => (
     <div
       key={service.title}
       className="premium-card overflow-hidden group flex flex-col h-full"
@@ -17,6 +14,7 @@ const Services = () => {
           src={service.imageUrl}
           alt={service.title}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent" />
@@ -58,7 +56,7 @@ const Services = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => renderCard(service))}
+          {servicesData.map((service) => renderCard(service))}
         </div>
       </div>
     </section>

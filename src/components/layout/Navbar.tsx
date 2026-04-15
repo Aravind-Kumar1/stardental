@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Menu, X, Phone, Calendar, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { services } from "@/lib/services";
+import { servicesData } from "@/lib/services-data";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -17,7 +17,7 @@ const Navbar = () => {
     { 
       name: "Services", 
       href: "/services",
-      dropdown: services.map(s => ({ name: s.title, href: `/services/${s.slug}` }))
+      dropdown: servicesData.map((s) => ({ name: s.title, href: `/services/${s.slug}` })),
     },
     { name: "Blogs", href: "/blogs" },
     { name: "Cases", href: "/cases" },
@@ -87,7 +87,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-4">
           <a href="tel:+919030271023" className="flex items-center gap-2 text-secondary font-semibold hover:text-primary transition-colors mr-4">
             <Phone size={18} className="fill-primary text-primary" />
-            <span>+91-9030271023</span>
+            <span>+91 90302 71023</span>
           </a>
           <Link
             href="/book-appointment"
@@ -150,7 +150,7 @@ const Navbar = () => {
           <div className="flex flex-col gap-4">
             <a href="tel:+919030271023" className="flex items-center gap-3 text-secondary font-semibold">
               <Phone size={20} className="text-primary" />
-              +91-9030271023
+              +91 90302 71023
             </a>
             <Link
               href="/book-appointment"

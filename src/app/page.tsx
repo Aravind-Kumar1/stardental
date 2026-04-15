@@ -1,27 +1,35 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
+import Highlights from "@/components/sections/Highlights";
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
-import Cases from "@/components/sections/Cases";
+import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import VideoGallery from "@/components/sections/VideoGallery";
+import Gallery from "@/components/sections/Gallery";
 import Testimonials from "@/components/sections/Testimonials";
-import Blogs from "@/components/sections/Blogs";
-import FAQ from "@/components/sections/FAQ";
+import Contact from "@/components/sections/Contact";
 import CTA from "@/components/sections/CTA";
+import FAQ from "@/components/sections/FAQ";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
 export default function Home() {
   return (
     <main className="relative min-h-screen">
       <Navbar />
       <Hero />
+      <Highlights />
       <About />
       <Services />
-      <Cases />
+      <WhyChooseUs />
+      <VideoGallery />
+      <Gallery />
       <Testimonials />
-      <Blogs limit={3} />
-      <FAQ />
+      <Contact />
       <CTA />
+      <FAQ />
       <Footer />
+      <WhatsAppButton />
     </main>
   );
 }

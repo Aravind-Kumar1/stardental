@@ -1,22 +1,11 @@
-import type { LucideIcon } from "lucide-react";
-import {
-  Layers,
-  ShieldCheck,
-  Crown,
-  Baby,
-  Siren,
-  Sparkles,
-  Droplet,
-} from "lucide-react";
+/** Serializable service content (no React / Lucide). Import this from client components to avoid bloating the bundle. */
 
-export type Service = {
+export type ServiceData = {
   title: string;
   slug: string;
-  /** H1-style line for detail page hero */
   detailHeading: string;
   description: string;
   longDescription: string;
-  icon: LucideIcon;
   imageUrl: string;
   color: string;
   iconColor: string;
@@ -24,7 +13,7 @@ export type Service = {
   benefitsHeading?: string;
 };
 
-export const services: Service[] = [
+export const servicesData: ServiceData[] = [
   {
     title: "Invisible Aligners & Braces",
     slug: "invisible-aligners-braces",
@@ -33,8 +22,8 @@ export const services: Service[] = [
       "Clear, removable aligners and modern braces to straighten teeth comfortably—with aesthetics in mind.",
     longDescription:
       "Invisible aligners are a modern and discreet solution for straightening teeth. These clear, removable trays gradually move your teeth into the correct position, making them ideal for adults and teenagers. Unlike traditional braces, aligners are comfortable, removable, and nearly invisible. However, braces may still be recommended for complex cases. Aligners are custom-made and gradually shift teeth over time.",
-    icon: Layers,
-    imageUrl: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800",
+    imageUrl:
+      "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800",
     color: "bg-sky-100/50",
     iconColor: "text-sky-600",
     benefits: [
@@ -52,8 +41,8 @@ export const services: Service[] = [
       "Permanent replacement for missing teeth that look, feel, and function like natural teeth.",
     longDescription:
       "Dental implants are a permanent solution for missing teeth. They involve placing a titanium post into the jawbone, which acts as an artificial root to support a crown. Implants look, feel, and function like natural teeth and provide long-lasting results—replacing missing teeth with durable, natural-looking solutions.",
-    icon: ShieldCheck,
-    imageUrl: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800",
+    imageUrl:
+      "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800",
     color: "bg-cyan-100/50",
     iconColor: "text-cyan-600",
     benefits: [
@@ -71,8 +60,8 @@ export const services: Service[] = [
       "Restore damaged teeth and replace missing teeth for better function and a natural-looking smile.",
     longDescription:
       "Crowns and bridges are restorative treatments used to repair damaged teeth and replace missing teeth. Crowns restore the shape, strength, and appearance of damaged teeth. Bridges replace missing teeth by anchoring to adjacent teeth. These treatments improve both function and aesthetics of your smile—crowns protect damaged teeth while bridges replace missing ones.",
-    icon: Crown,
-    imageUrl: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=800",
+    imageUrl:
+      "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=800",
     color: "bg-blue-100/50",
     iconColor: "text-blue-600",
     benefits: [
@@ -90,8 +79,8 @@ export const services: Service[] = [
       "Gentle, preventive care for children—from infancy through adolescence—in a friendly environment.",
     longDescription:
       "Pediatric dentistry focuses on the oral health of children from infancy to adolescence. We provide preventive care, early diagnosis, and treatments tailored to children. Our clinic ensures a friendly and stress-free environment for kids. Pediatric care includes prevention, early treatment, and education.",
-    icon: Baby,
-    imageUrl: "https://images.unsplash.com/photo-1461532257246-777de18cd58b?auto=format&fit=crop&q=80&w=800",
+    imageUrl:
+      "https://images.unsplash.com/photo-1461532257246-777de18cd58b?auto=format&fit=crop&q=80&w=800",
     color: "bg-indigo-100/50",
     iconColor: "text-indigo-600",
     benefitsHeading: "Services include",
@@ -110,8 +99,8 @@ export const services: Service[] = [
       "Urgent care when you need it—to relieve pain, protect your teeth, and prevent complications.",
     longDescription:
       "Dental emergencies require immediate attention to relieve pain and prevent further complications. Emergency care provides immediate relief and helps prevent further damage. Contact us right away if you are in pain or have had trauma to the teeth or mouth.",
-    icon: Siren,
-    imageUrl: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800",
+    imageUrl:
+      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800",
     color: "bg-rose-100/50",
     iconColor: "text-rose-600",
     benefitsHeading: "Common emergencies include",
@@ -130,8 +119,8 @@ export const services: Service[] = [
       "Enhance the appearance of your smile with whitening, veneers, smile design, and more.",
     longDescription:
       "Cosmetic dentistry focuses on improving the appearance of your smile through advanced treatments. Whether you want a brighter smile or a full smile makeover, we plan care around your goals and oral health. Cosmetic treatments enhance smile aesthetics and confidence.",
-    icon: Sparkles,
-    imageUrl: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800",
+    imageUrl:
+      "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800",
     color: "bg-violet-100/50",
     iconColor: "text-violet-600",
     benefitsHeading: "Common procedures include",
@@ -150,8 +139,8 @@ export const services: Service[] = [
       "Professional cleaning for healthier gums and safe whitening for a brighter, confident smile.",
     longDescription:
       "Routine professional cleaning removes plaque and tartar, helps prevent gum disease, and keeps your mouth healthy. Professional teeth whitening lifts many surface stains safely under dental supervision. Together, cleaning and whitening support both oral health and appearance—ideal as part of your regular care or before special occasions.",
-    icon: Droplet,
-    imageUrl: "https://images.unsplash.com/photo-1445527815219-ecbfec67492e?auto=format&fit=crop&q=80&w=800",
+    imageUrl:
+      "https://images.unsplash.com/photo-1445527815219-ecbfec67492e?auto=format&fit=crop&q=80&w=800",
     color: "bg-slate-100/50",
     iconColor: "text-slate-600",
     benefits: [
