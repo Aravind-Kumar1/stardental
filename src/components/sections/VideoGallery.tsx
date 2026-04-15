@@ -1,48 +1,14 @@
-"use client";
-
-import { useEffect } from "react";
-
-declare global {
-  interface Window {
-    instgrm?: {
-      Embeds?: {
-        process: () => void;
-      };
-    };
-  }
-}
-
-const reelUrls = [
-  "https://www.instagram.com/reel/DE13uCxzplp/",
-  "https://www.instagram.com/reel/DNnAMGczwPP/",
-  "https://www.instagram.com/reel/DVbB1syAMfy/",
-  "https://www.instagram.com/reel/DVvs2PSFYKt/",
-  "https://www.instagram.com/reel/DWOcyM1Cd4n/",
-  "https://www.instagram.com/reel/DWWCdXZjGcc/",
-  "https://www.instagram.com/reel/DWoF43DCTWE/",
+const reelIds = [
+  "DE13uCxzplp",
+  "DNnAMGczwPP",
+  "DVbB1syAMfy",
+  "DVvs2PSFYKt",
+  "DWOcyM1Cd4n",
+  "DWWCdXZjGcc",
+  "DWoF43DCTWE",
 ];
 
 export default function VideoGallery() {
-  useEffect(() => {
-    const existingScript = document.querySelector(
-      'script[src="https://www.instagram.com/embed.js"]'
-    ) as HTMLScriptElement | null;
-
-    if (existingScript && window.instgrm?.Embeds?.process) {
-      window.instgrm.Embeds.process();
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.src = "https://www.instagram.com/embed.js";
-    script.async = true;
-    script.onload = () => {
-      if (window.instgrm?.Embeds?.process) {
-        window.instgrm.Embeds.process();
-      }
-    };
-    document.body.appendChild(script);
-  }, []);
 
   return (
     <section id="video-gallery" className="py-16 lg:py-20 bg-white">
@@ -57,26 +23,18 @@ export default function VideoGallery() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
-          {reelUrls.map((url) => (
+          {reelIds.map((reelId) => (
             <div
-              key={url}
+              key={reelId}
               className="rounded-2xl overflow-hidden border border-border/60 bg-slate-50 shadow-sm"
             >
-              <div className="h-[390px] sm:h-[360px] lg:h-[340px] overflow-auto p-2 bg-white">
-                <blockquote
-                  className="instagram-media"
-                  data-instgrm-permalink={url}
-                  data-instgrm-version="14"
-                  style={{
-                    background: "#FFF",
-                    border: 0,
-                    borderRadius: 12,
-                    boxShadow: "none",
-                    margin: 0,
-                    maxWidth: "100%",
-                    minWidth: "100%",
-                    width: "100%",
-                  }}
+              <div className="relative h-[390px] sm:h-[360px] lg:h-[340px] bg-slate-100 overflow-hidden">
+                <iframe
+                  src={`https://www.instagram.com/reel/${reelId}/embed/`}
+                  className="absolute top-[-74px] left-0 w-full h-[calc(100%+150px)] border-0"
+                  scrolling="no"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  title={`Instagram reel ${reelId}`}
                 />
               </div>
             </div>
