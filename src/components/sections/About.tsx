@@ -16,16 +16,16 @@ const About = () => {
   return (
     <section id="about" className="section-padding overflow-hidden">
       <div className="container-custom">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="w-full lg:w-1/2 relative shrink-0">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="w-full lg:w-[52%] relative shrink-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="relative z-10 rounded-2xl overflow-hidden shadow-2xl"
+              className="relative z-10 rounded-2xl overflow-hidden shadow-2xl max-w-xl mx-auto lg:mx-0"
             >
-              <div className="aspect-[4/5] relative">
+              <div className="aspect-square relative">
                 <Image
                   src="/images/dental_doctor.jpeg"
                   alt="Dr. Manjunatha Reddy - Expert Dentist"

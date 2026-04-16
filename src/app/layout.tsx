@@ -40,9 +40,6 @@ export default function RootLayout({
       className={`${poppins.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-sans selection:bg-primary/20 selection:text-primary">
-        <Suspense fallback={null}>
-          <ScrollToTop />
-        </Suspense>
         {children}
         <a 
           href="https://wa.me/918867462440" 

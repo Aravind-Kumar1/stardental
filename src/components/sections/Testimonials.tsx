@@ -60,18 +60,18 @@ const GoogleIcon = () => (
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 max-w-4xl mx-auto">
+    <section id="testimonials" className="section-padding">
+      <div className="container-custom px-6 lg:px-12">
+        <div className="text-left mb-8 max-w-4xl">
           <span className="block font-bold text-secondary text-base uppercase tracking-[0.2em] mb-4">Why People give us 5 star ratings</span>
-          <h2 className="text-5xl md:text-7xl font-black text-slate-900 m-0 mb-8 leading-[1.1]">Google Reviews</h2>
+          <h2 className="heading-section">Google Reviews</h2>
           <a 
             href="https://www.google.com/search?q=star+smiles+dental+care+manikonda+reviews" 
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-10 py-4 bg-[#f8fbff] text-secondary font-bold rounded-2xl border border-slate-100 shadow-sm hover:bg-secondary hover:text-white transition-all duration-300"
+            className="inline-flex items-center px-10 py-4 bg-primary text-white font-bold rounded-2xl shadow-premium hover:bg-primary-dark transition-all duration-300 group"
           >
-            View All Reviews &gt;
+            Review Us on Google
           </a>
         </div>
         
@@ -95,9 +95,6 @@ export default function Testimonials() {
                     <span className="text-slate-400 text-xs font-medium">{t.date}</span>
                   </div>
                 </div>
-                <div className="bg-slate-50 p-2 rounded-lg">
-                  <GoogleIcon />
-                </div>
               </div>
 
               <div className="flex gap-1 mb-4">
@@ -111,7 +108,7 @@ export default function Testimonials() {
           ))}
         </div>
 
-        <div className="mt-16 bg-[#f8fbff] p-8 rounded-3xl border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative">
+        <div className="mt-12 bg-white p-8 rounded-3xl border border-border/40 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative shadow-sm">
           <div className="z-10">
             <p className="text-slate-700 text-lg font-medium">Google rating score: <strong className="text-slate-900 text-2xl font-black">5.0</strong> of 5, based on <strong className="text-slate-900 font-black">199 reviews</strong></p>
           </div>
@@ -119,9 +116,9 @@ export default function Testimonials() {
             href="https://www.google.com/search?q=star+smiles+dental+care+manikonda+reviews"
             target="_blank"
             rel="noopener noreferrer"
-            className="z-10 bg-white px-10 py-4 rounded-xl font-bold text-slate-900 shadow-sm border border-slate-200 hover:shadow-md transition-all flex items-center gap-3"
+            className="z-10 bg-primary px-10 py-4 rounded-xl font-bold text-white shadow-premium hover:bg-primary-dark transition-all flex items-center gap-3"
           >
-            Review Us On <GoogleIcon />
+            Review Us On Google
           </a>
           <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl" />
         </div>

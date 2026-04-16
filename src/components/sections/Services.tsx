@@ -9,7 +9,7 @@ const Services = () => {
       key={service.title}
       className="premium-card overflow-hidden group flex flex-col h-full"
     >
-      <div className="relative aspect-[16/10] overflow-hidden">
+      <div className="relative aspect-[16/8.5] overflow-hidden">
         <Image
           src={service.imageUrl}
           alt={service.title}
@@ -20,20 +20,20 @@ const Services = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent" />
       </div>
 
-      <div className="p-8 flex flex-col flex-1">
-        <h3 className="text-xl font-bold text-secondary mb-3 transition-colors">{service.title}</h3>
-        <p className="text-body mb-8 line-clamp-3">
+      <div className="p-5 flex flex-col flex-1">
+        <h3 className="text-lg font-bold text-secondary mb-1.5 transition-colors leading-tight">{service.title}</h3>
+        <p className="text-body-small mb-4 line-clamp-2">
           {service.description}
         </p>
 
-        <div className="mt-auto pt-6 border-t border-border/40">
+        <div className="mt-auto pt-1.5 border-t border-border/40">
           <Link
             href={`/services/${service.slug}`}
             scroll={true}
-            className="inline-flex items-center gap-3 text-primary text-[1rem] font-bold hover:gap-4 transition-all"
+            className="inline-flex items-center gap-2 text-primary text-sm font-bold hover:gap-3 transition-all"
           >
-            View Details
-            <SearchCheck size={20} className="stroke-[2.5]" />
+            Details
+            <SearchCheck size={16} className="stroke-[2.5]" />
           </Link>
         </div>
       </div>
@@ -41,21 +41,21 @@ const Services = () => {
   );
 
   return (
-    <section id="services" className="section-padding bg-slate-50/30">
-      <div className="container-custom">
-        <div className="mb-16 text-center max-w-3xl mx-auto">
+    <section id="services" className="section-padding">
+      <div className="container-custom px-6 lg:px-12">
+        <div className="mb-14 text-left">
             <p className="text-primary font-bold text-xs uppercase tracking-[0.2em] mb-4">
                Global Standards
             </p>
              <h2 className="heading-section">
                 Comprehensive Dental Care for <span className="gradient-text italic">Your Perfect Smile</span>
              </h2>
-           <p className="text-body">
+           <p className="text-body text-sm">
              From routine checkups to complex oral surgeries, we offer a full spectrum of dental services using the latest technology and gentle care techniques in Manikonda.
            </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {servicesData.map((service) => renderCard(service))}
         </div>
       </div>

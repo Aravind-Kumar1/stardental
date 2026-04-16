@@ -31,47 +31,46 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <div className="space-y-8">
+    <section id="contact" className="section-padding">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start max-w-7xl mx-auto px-6">
+          <div className="space-y-12 pr-4">
             <div>
-              <span className="text-secondary font-bold text-lg uppercase tracking-wider mb-2 block">Contact Us</span>
-              <h2 className="text-5xl md:text-6xl font-extrabold text-[#0f172a] leading-tight">Visit Our Dental Clinic in Sanath Nagar</h2>
+              <span className="text-primary font-bold text-xs uppercase tracking-[0.2em] mb-4 block">Contact Us</span>
+              <h2 className="heading-section">Visit Our Dental Clinic in <span className="gradient-text">Manikonda</span></h2>
+              <p className="text-body mt-2">Professional dental care you can trust in Hyderabad.</p>
             </div>
             
-            <div className="space-y-8">
-              <div className="flex gap-6">
-                <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center text-secondary shrink-0 shadow-sm">
-                  <MapPin size={28} />
+            <div className="space-y-12">
+              <div className="flex gap-6 items-start">
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary shrink-0 shadow-sm border border-border/50 transition-transform hover:scale-110">
+                  <MapPin size={26} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">Address</h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    First Floor, Flat No: S-104, SVSS Nivas Complex,<br />
-                    Above Ratnadeep Super Market, Opp. Gokul Theatre Lane,<br />
-                    Czech Colony, Sanath Nagar, Hyderabad – 500018
+                  <h3 className="text-xl font-bold text-secondary mb-2">Address</h3>
+                  <p className="text-body max-w-sm">
+                    Alkapur Township, Huda, Mahalneknapur, Manikonda, Hyderabad, Telangana - 500089
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-6">
-                <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center text-secondary shrink-0 shadow-sm">
-                  <Clock size={28} />
+              <div className="flex gap-6 items-start">
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary shrink-0 shadow-sm border border-border/50">
+                  <Clock size={26} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">Timings</h3>
-                  <p className="text-slate-600">Open Daily – Closes 9:00 PM</p>
+                  <h3 className="text-xl font-bold text-secondary mb-2">Timings</h3>
+                  <p className="text-body">Open Daily: 10:00 AM – 09:00 PM</p>
                 </div>
               </div>
 
-              <div className="flex gap-6">
-                <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center text-secondary shrink-0 shadow-sm">
-                  <Phone size={28} />
+              <div className="flex gap-6 items-start">
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary shrink-0 shadow-sm border border-border/50">
+                  <Phone size={26} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">Phone</h3>
-                  <p className="text-slate-600 font-bold text-lg">
+                  <h3 className="text-xl font-bold text-secondary mb-2">Phone</h3>
+                  <p className="font-bold text-lg text-secondary">
                     <a href="tel:+919030271023" className="hover:text-primary transition-colors">+91 90302 71023</a>
                   </p>
                 </div>

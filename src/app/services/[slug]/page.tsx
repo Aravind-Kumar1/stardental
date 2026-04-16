@@ -7,6 +7,7 @@ import Image from "next/image";
 import { CheckCircle, ArrowLeft, Phone, Calendar } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import FAQ from "@/components/sections/FAQ";
 
 const PHONE_DISPLAY = "+91 88674 62440";
 const PHONE_HREF = "tel:+918867462440";
@@ -152,6 +153,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
         </div>
       </section>
 
+      <FAQ />
       <CTA />
       <Footer />
     </main>

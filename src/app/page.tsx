@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import Highlights from "@/components/sections/Highlights";
+
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
@@ -19,6 +20,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Highlights />
+
       <About />
       <Services />
       <WhyChooseUs />

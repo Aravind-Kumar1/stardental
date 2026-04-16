@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <main className="relative min-h-screen">
       <Navbar />
-      <div className="pt-32 pb-16 bg-gradient-to-b from-slate-50 to-white text-center px-6">
+      <div className="pt-24 pb-8 bg-gradient-to-b from-slate-50 to-white text-center px-6">
         <p className="text-primary font-bold text-sm uppercase tracking-widest mb-4">
           About us
         </p>

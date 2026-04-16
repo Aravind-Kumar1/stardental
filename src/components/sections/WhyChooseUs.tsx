@@ -29,11 +29,11 @@ export default function WhyChooseUs() {
   };
 
   return (
-    <section className="py-20 bg-[#f8fbff]">
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16 max-w-4xl mx-auto">
+    <section id="why-choose-us" className="section-padding">
+      <div className="container-custom px-6 lg:px-12">
+        <div className="text-left mb-10">
           <span className="block font-bold text-xl text-secondary mb-3 uppercase tracking-[0.2em]">Experience Excellence</span>
-          <h2 className="text-5xl md:text-7xl font-black text-slate-900 m-0 leading-[1.1]">Why Choose Star Smiles Dental?</h2>
+          <h2 className="heading-section">Why Choose Star Smiles Dental?</h2>
         </div>
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
