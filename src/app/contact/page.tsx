@@ -22,7 +22,7 @@ export default function ContactPage() {
             <ArrowLeft size={16} /> Back to Home
           </Link>
           
-          <h1 className="text-secondary text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6 tracking-tight max-w-4xl mx-auto leading-tight">
+          <h1 className="text-secondary text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 tracking-tight max-w-4xl mx-auto leading-tight">
             Get in Touch With <span className="text-primary italic">Our Experts</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-medium leading-relaxed mb-12">

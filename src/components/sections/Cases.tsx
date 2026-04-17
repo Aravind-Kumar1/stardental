@@ -74,7 +74,7 @@ const Cases = () => {
                     <div className="bg-primary/90 text-white px-3 py-1 rounded-lg text-[0.7rem] font-bold uppercase tracking-[0.15em] mb-3 inline-block self-start">
                       {item.category}
                     </div>
-                    <h3 className="text-white text-2xl lg:text-3xl font-bold">{item.title}</h3>
+                    <h3 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold">{item.title}</h3>
                   </div>
                 </div>
                 <div className="p-8">

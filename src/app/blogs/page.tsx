@@ -15,7 +15,7 @@ export default function BlogsPage() {
       <section className="pt-24 pb-8 bg-gradient-to-b from-slate-50 to-white">
         <div className="container-custom px-6 text-center">
           <p className="text-primary font-bold text-sm uppercase tracking-widest mb-4">Blogs</p>
-          <h1 className="text-secondary text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6 tracking-tight max-w-4xl mx-auto">
+          <h1 className="text-secondary text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 tracking-tight max-w-4xl mx-auto">
             Helpful dental articles for patients and families
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">

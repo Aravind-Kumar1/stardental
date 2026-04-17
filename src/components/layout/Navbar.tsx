@@ -32,7 +32,7 @@ const Navbar = () => {
     >
       <div className="container-custom flex items-center justify-between h-20 px-6">
         <Link href="/" className="flex items-center gap-2">
-          <div className="relative w-48 h-12">
+          <div className="relative w-36 h-8 sm:w-48 sm:h-12">
             <Image
               src="/images/Logo Blue.png"
               alt="Star Smiles Dental Care"
