@@ -59,6 +59,36 @@ const GoogleIcon = () => (
 );
 
 export default function Testimonials() {
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let intervalId: NodeJS.Timeout;
+
+    const startAutoScroll = () => {
+      intervalId = setInterval(() => {
+        if (window.innerWidth < 768) {
+          const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+          const maxScrollRight = scrollWidth - clientWidth;
+          
+          if (scrollLeft >= maxScrollRight) {
+            scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
+          } else {
+            scrollContainer.scrollBy({ left: clientWidth * 0.8, behavior: "smooth" });
+          }
+        }
+      }, 4000);
+    };
+
+    startAutoScroll();
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
   return (
     <section id="testimonials" className="section-padding bg-background relative overflow-hidden">
       <div className="container-custom px-6 lg:px-12">
@@ -75,7 +105,10 @@ export default function Testimonials() {
           </a>
         </div>
         
-        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 md:mx-0 md:px-0">
+        <div 
+          ref={scrollRef}
+          className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 md:mx-0 md:px-0"
+        >
           {testimonials.map((t, index) => (
             <motion.div 
               key={index} 

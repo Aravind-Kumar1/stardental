@@ -30,7 +30,7 @@ const Navbar = () => {
     <nav
       className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border/40 shadow-sm"
     >
-      <div className="container-custom flex items-center justify-between h-20 px-6">
+      <div className="container-custom flex items-center justify-between h-16 sm:h-20 px-6">
         <Link href="/" className="flex items-center gap-2">
           <div className="relative w-36 h-8 sm:w-48 sm:h-12">
             <Image
@@ -108,13 +108,13 @@ const Navbar = () => {
           className="md:hidden text-secondary"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-20 left-0 right-0 bg-white border-b border-border p-6 flex flex-col gap-6 md:hidden shadow-xl max-h-[80vh] overflow-y-auto"
+        <div className="absolute top-16 sm:top-20 left-0 right-0 bg-white border-b border-border p-6 flex flex-col gap-6 md:hidden shadow-xl max-h-[80vh] overflow-y-auto"
         >
           {navLinks.map((link) => (
             <div key={link.name} className="flex flex-col gap-4">

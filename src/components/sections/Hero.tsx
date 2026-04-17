@@ -26,7 +26,7 @@ const StatCounter = ({ value, suffix = "", decimals = 0 }: { value: number; suff
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-background min-h-[85vh] flex flex-col justify-between">
+    <section className="relative overflow-hidden bg-background min-h-[70vh] sm:min-h-[85vh] flex flex-col justify-between">
       {/* Full Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -41,7 +41,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px] lg:hidden" />
       </div>
 
-      <div className="container-custom relative z-10 w-full pt-48 pb-8 flex-grow flex items-center justify-center lg:justify-start">
+      <div className="container-custom relative z-10 w-full pt-32 sm:pt-48 pb-8 flex-grow flex items-center justify-center lg:justify-start">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -88,37 +88,37 @@ const Hero = () => {
         transition={{ delay: 0.6, duration: 0.8 }}
         className="relative z-10 w-full border-t border-secondary/5 bg-white shadow-[-10px_0_30px_rgba(0,0,0,0.02)]"
       >
-        <div className="container-custom py-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-secondary/10">
-            <div className="flex flex-col items-center justify-center p-4">
-              <span className="text-4xl lg:text-5xl font-black text-secondary tracking-tight">
+        <div className="container-custom py-6 sm:py-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-6 sm:gap-y-0 divide-x divide-secondary/10">
+            <div className="flex flex-col items-center justify-center px-2 py-3">
+              <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-secondary tracking-tight">
                 <StatCounter value={18} suffix="+" />
               </span>
-              <span className="text-sm text-secondary/60 font-bold tracking-widest uppercase mt-3 text-center">Years Exp.</span>
+              <span className="text-[10px] sm:text-sm text-secondary/60 font-bold tracking-widest uppercase mt-2 text-center">Years Exp.</span>
             </div>
 
-            <div className="flex flex-col items-center justify-center p-4">
-              <span className="text-4xl lg:text-5xl font-black text-secondary tracking-tight">
+            <div className="flex flex-col items-center justify-center px-2 py-3">
+              <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-secondary tracking-tight">
                 <StatCounter value={10} suffix="k+" />
               </span>
-              <span className="text-sm text-secondary/60 font-bold tracking-widest uppercase mt-3 text-center">Happy Patients</span>
+              <span className="text-[10px] sm:text-sm text-secondary/60 font-bold tracking-widest uppercase mt-2 text-center">Happy Patients</span>
             </div>
 
-            <div className="flex flex-col items-center justify-center p-4">
+            <div className="flex flex-col items-center justify-center px-2 py-3 border-l sm:border-l-0 border-secondary/10">
               <div className="flex items-baseline justify-center">
-                <span className="text-4xl lg:text-5xl font-black text-secondary tracking-tight">
+                <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-secondary tracking-tight">
                   <StatCounter value={5} />
                 </span>
-                <span className="text-2xl lg:text-3xl font-bold text-secondary/40 ml-1">/5</span>
+                <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary/40 ml-1">/5</span>
               </div>
-              <span className="text-sm text-secondary/60 font-bold tracking-widest uppercase mt-3 text-center">Google Rating</span>
+              <span className="text-[10px] sm:text-sm text-secondary/60 font-bold tracking-widest uppercase mt-2 text-center">Google Rating</span>
             </div>
 
-            <div className="flex flex-col items-center justify-center p-4">
-              <span className="text-4xl lg:text-5xl font-black text-secondary tracking-tight">
+            <div className="flex flex-col items-center justify-center px-2 py-3 border-l border-secondary/10">
+              <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-secondary tracking-tight">
                 <StatCounter value={98} suffix="%" />
               </span>
-              <span className="text-sm text-secondary/60 font-bold tracking-widest uppercase mt-1.5 text-center">Satisfaction</span>
+              <span className="text-[10px] sm:text-sm text-secondary/60 font-bold tracking-widest uppercase mt-2 text-center">Satisfaction</span>
             </div>
           </div>
         </div>
