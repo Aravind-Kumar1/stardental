@@ -65,6 +65,7 @@ export default function Gallery() {
                     src={item.before} 
                     alt={`${item.title} Before`} 
                     fill
+                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
                     className="object-cover" 
                   />
                   <span className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold uppercase">Before</span>
@@ -74,6 +75,7 @@ export default function Gallery() {
                     src={item.after} 
                     alt={`${item.title} After`} 
                     fill
+                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
                     className="object-cover" 
                   />
                   <span className="absolute bottom-4 left-4 bg-primary/80 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold uppercase">After</span>

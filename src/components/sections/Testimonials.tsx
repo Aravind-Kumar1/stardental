@@ -59,35 +59,7 @@ const GoogleIcon = () => (
 );
 
 export default function Testimonials() {
-  const scrollRef = React.useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let intervalId: NodeJS.Timeout;
-
-    const startAutoScroll = () => {
-      intervalId = setInterval(() => {
-        if (window.innerWidth < 768) {
-          const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
-          const maxScrollRight = scrollWidth - clientWidth;
-          
-          if (scrollLeft >= maxScrollRight) {
-            scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
-          } else {
-            scrollContainer.scrollBy({ left: clientWidth * 0.8, behavior: "smooth" });
-          }
-        }
-      }, 4000);
-    };
-
-    startAutoScroll();
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
 
   return (
     <section id="testimonials" className="section-padding bg-background relative overflow-hidden">
@@ -105,43 +77,43 @@ export default function Testimonials() {
           </a>
         </div>
         
-        <div 
-          ref={scrollRef}
-          className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 md:mx-0 md:px-0"
-        >
-          {testimonials.map((t, index) => (
-            <motion.div 
-              key={index} 
-              className="min-w-[85vw] md:min-w-0 bg-background p-8 rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/40 relative group hover:shadow-xl transition-all duration-500 snap-center h-full flex flex-col"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <div className="flex justify-between items-start mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl" style={{ backgroundColor: t.color }}>
-                    {t.initial}
+        <div className="w-full relative mt-8 group">
+          <div className="absolute left-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+          <div className="overflow-hidden w-full flex py-4 pb-8">
+            <div className="flex gap-6 md:gap-8 w-max animate-marquee group-hover:[animation-play-state:paused]">
+              {[...testimonials, ...testimonials].map((t, index) => (
+                <div 
+                  key={index} 
+                  className="w-[300px] md:w-[400px] lg:w-[450px] bg-white p-8 rounded-3xl border border-border/50 shadow-xl shadow-blue-900/5 relative hover:shadow-2xl transition-all duration-500 h-full flex flex-col shrink-0"
+                >
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl" style={{ backgroundColor: t.color }}>
+                        {t.initial}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 leading-none mb-1">{t.name}</h4>
+                        <span className="text-slate-400 text-xs font-medium">{t.date}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 leading-none mb-1">{t.name}</h4>
-                    <span className="text-slate-400 text-xs font-medium">{t.date}</span>
+
+                  <div className="flex gap-1 mb-4">
+                    {[1, 2, 3, 4, 5].map((s) => (
+                      <Star key={`star-${index}-${s}`} size={16} fill="#fbbc05" stroke="none" />
+                    ))}
                   </div>
+
+                  <p className="text-slate-600 leading-relaxed italic flex-grow text-sm sm:text-base">"{t.text}"</p>
                 </div>
-              </div>
-
-              <div className="flex gap-1 mb-4">
-                {[1, 2, 3, 4, 5].map((s) => (
-                  <Star key={`star-${index}-${s}`} size={16} fill="#fbbc05" stroke="none" />
-                ))}
-              </div>
-
-              <p className="text-slate-600 leading-relaxed italic flex-grow text-sm sm:text-base">"{t.text}"</p>
-            </motion.div>
-          ))}
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="mt-12 bg-white p-8 rounded-3xl border border-border/40 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative shadow-sm">
+        <div className="mt-12 bg-gradient-to-br from-[#EEF5FF] to-[#FEFEFF] p-8 rounded-3xl border border-primary/10 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative shadow-sm">
           <div className="z-10">
             <p className="text-slate-700 text-lg font-medium">Google rating score: <strong className="text-slate-900 text-2xl font-black">5.0</strong> of 5, based on <strong className="text-slate-900 font-black">199 reviews</strong></p>
           </div>

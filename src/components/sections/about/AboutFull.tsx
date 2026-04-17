@@ -78,9 +78,9 @@ export default function AboutFull() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 lg:p-9 shadow-card border border-border/50 h-full"
+            className="bg-gradient-to-br from-[#EEF5FF] to-[#FEFEFF] rounded-3xl p-8 lg:p-9 shadow-card border border-primary/10 h-full"
           >
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
+              <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-sm">
               <ShieldCheck className="text-primary" size={28} />
             </div>
             <h3 className="text-xl sm:text-2xl font-display font-bold text-secondary mb-3">Our mission</h3>
@@ -94,9 +94,9 @@ export default function AboutFull() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.08 }}
-            className="bg-white rounded-3xl p-8 lg:p-9 shadow-card border border-border/50 h-full"
+            className="bg-gradient-to-br from-[#EEF5FF] to-[#FEFEFF] rounded-3xl p-8 lg:p-9 shadow-card border border-primary/10 h-full"
           >
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
+              <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-sm">
               <Sparkles className="text-primary" size={28} />
             </div>
             <h3 className="text-xl sm:text-2xl font-display font-bold text-secondary mb-3">Our vision</h3>
@@ -144,24 +144,25 @@ export default function AboutFull() {
 
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="w-full lg:w-1/2 relative"
+              className="w-full lg:w-[56%] relative"
             >
-              <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] max-h-[520px]">
+              <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl aspect-[1.1/1] lg:aspect-[4/3.2] w-full">
                 <Image
                   src="/images/dental_doctor.jpeg"
                   alt="Senior Dentist at Star Smiles Dental Care"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 56vw"
                   className="object-cover"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/15 rounded-full blur-3xl -z-0" />
             </motion.div>
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-[44%]">
               <div className="inline-flex items-center gap-2 text-primary font-bold text-sm tracking-widest uppercase mb-6">
                 <Stethoscope size={18} />
                 Meet our expert dentist
@@ -182,8 +183,8 @@ export default function AboutFull() {
               <Link
                 href="/services"
                 className={cn(
-                  "inline-flex items-center justify-center rounded-xl transition-all active:scale-[0.98]",
-                  "bg-primary text-white hover:bg-primary-dark shadow-premium",
+                  "inline-flex items-center justify-center rounded-xl transition-all duration-300 active:scale-[0.98]",
+                  "bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white hover:brightness-110 shadow-premium",
                   "px-8 py-4 text-lg font-semibold"
                 )}
               >

@@ -30,6 +30,7 @@ const About = () => {
                   src="/images/dental_doctor.jpeg"
                   alt="Dr. Manjunatha Reddy - Expert Dentist"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 52vw"
                   className="object-cover"
                 />
               </div>

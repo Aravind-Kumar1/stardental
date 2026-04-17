@@ -14,12 +14,12 @@ const CTA = () => {
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
             {/* Left: Content */}
             <div className="max-w-3xl text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/5 text-primary font-bold text-sm mb-8 border border-white/10 backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/5 text-white font-bold text-sm mb-8 border border-white/10 backdrop-blur-sm">
                   Ready for Your Transformation?
               </div>
 
               <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[3.5rem] font-display font-bold mb-6 leading-[1.15] text-white">
-                  Book your <span className="text-primary italic">consultation</span> today
+                  Book your <span className="text-white italic">consultation</span> today
               </h2>
 
               <p className="text-base lg:text-xl text-slate-400 mb-0 leading-relaxed max-w-xl mx-auto lg:mx-0">

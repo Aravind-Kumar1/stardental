@@ -3,8 +3,8 @@
 :root {
   --background: #f0f7ff;
   --foreground: #1e293b;
-  --primary: #0ea5e9;
-  --primary-dark: #0284c7;
+  --primary: #1A4996;
+  --primary-dark: #030A14;
   --secondary: #0f172a;
   --accent: #38bdf8;
   --muted: #f1f5f9;
@@ -29,7 +29,7 @@
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
 
-  --shadow-premium: 0 10px 40px -10px rgba(14, 165, 233, 0.15);
+  --shadow-premium: 0 10px 40px -10px rgba(26, 73, 150, 0.15);
   --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
   --shadow-card-hover: 0 20px 40px -15px rgba(15, 23, 42, 0.1);
 }
@@ -144,5 +144,33 @@
   video::-webkit-media-controls-panel {
     width: calc(100% + 50px) !important;
     /* Pushes the 'three dots' off the panel */
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  @keyframes loading-progress {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+  }
+
+  .animate-loading-progress {
+    animation: loading-progress 1.5s ease-in-out infinite;
+  }
+
+  @keyframes logo-breath {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.05); opacity: 1; }
+  }
+
+  .animate-logo-breath {
+    animation: logo-breath 2.5s ease-in-out infinite;
   }
 }

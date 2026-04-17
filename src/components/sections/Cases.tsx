@@ -21,7 +21,7 @@ const cases = [
 
 const Cases = () => {
   return (
-    <section id="cases" className="section-padding bg-slate-50/50 overflow-hidden">
+    <section id="cases" className="pt-8 pb-20 bg-slate-50/50 overflow-hidden">
       <div className="container-custom">
         <div className="mb-20 text-center max-w-3xl mx-auto">
              <motion.div
@@ -68,6 +68,7 @@ const Cases = () => {
                     src={item.image}
                     alt={item.title}
                     fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/20 to-transparent flex flex-col justify-end p-8">

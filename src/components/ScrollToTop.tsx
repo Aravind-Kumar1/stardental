@@ -8,7 +8,15 @@ export default function ScrollToTop() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    // Immediate scroll to top
+    window.scrollTo(0, 0);
+    
+    // Fallback for cases where layout settling takes time
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 10);
+
+    return () => clearTimeout(timer);
   }, [pathname, searchParams]);
 
   return null;

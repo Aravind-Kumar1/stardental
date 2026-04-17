@@ -8,6 +8,7 @@ import { CheckCircle, ArrowLeft, Phone, Calendar } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import FAQ from "@/components/sections/FAQ";
+import Hero from "@/components/sections/Hero";
 
 const PHONE_DISPLAY = "+91 88674 62440";
 const PHONE_HREF = "tel:+918867462440";
@@ -37,58 +38,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
     <main className="relative min-h-screen">
       <Navbar />
 
-      <div className="pt-24 pb-12 lg:pt-32 lg:pb-16 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden border-b border-border/40">
-        <div className="container-custom relative z-10 px-6">
-          <Link
-            href="/services"
-            prefetch
-            className="inline-flex items-center gap-2 text-primary font-bold mb-8 hover:gap-3 transition-all text-sm uppercase tracking-widest"
-          >
-            <ArrowLeft size={16} /> Back to services
-          </Link>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="max-w-xl">
-              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-secondary mb-6 tracking-tight leading-tight">
-                {service.detailHeading}
-              </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                {service.description}
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  href={`/book-appointment?service=${encodeURIComponent(service.title)}`}
-                  prefetch={false}
-                  className="inline-flex items-center justify-center rounded-2xl transition-all active:scale-[0.98] bg-primary text-white hover:bg-primary-dark shadow-premium px-8 py-5 text-base font-bold"
-                >
-                  Book Appointment
-                </Link>
-                <a
-                  href={PHONE_HREF}
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-white px-8 py-5 text-base font-bold text-secondary hover:bg-slate-50 transition-all"
-                >
-                  <Phone size={18} />
-                  Consult Now
-                </a>
-              </div>
-            </div>
-
-            <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
-              <Image
-                src={service.imageUrl}
-                alt={service.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                className="object-cover"
-                priority
-                quality={80}
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
-            </div>
-          </div>
-        </div>
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -z-0 -translate-x-1/2 -translate-y-1/2" />
-      </div>
+      <Hero page="single_service" serviceContext={service} />
 
       <section className="py-16 lg:py-20">
         <div className="container-custom grid lg:grid-cols-12 gap-12 lg:gap-16 px-6">

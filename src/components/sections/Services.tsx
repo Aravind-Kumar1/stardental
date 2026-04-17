@@ -9,20 +9,20 @@ const Services = () => {
       key={service.title}
       className="premium-card overflow-hidden group flex flex-col h-full"
     >
-      <div className="relative aspect-[16/8.5] overflow-hidden">
+      <div className="relative aspect-[16/9] sm:aspect-[16/11] overflow-hidden">
         <Image
           src={service.imageUrl}
           alt={service.title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition-transform duration-700"
+          className="object-cover object-top transition-transform duration-700 scale-[1.01] overflow-hidden"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent" />
       </div>
 
-      <div className="p-5 flex flex-col flex-1">
+      <div className="p-4 sm:p-5 flex flex-col flex-1">
         <h3 className="text-lg font-bold text-secondary mb-1.5 transition-colors leading-tight">{service.title}</h3>
-        <p className="text-body-small mb-4 line-clamp-2">
+        <p className="text-body-small mb-3 sm:mb-4 line-clamp-2">
           {service.description}
         </p>
 

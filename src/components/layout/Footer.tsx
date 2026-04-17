@@ -18,18 +18,19 @@ const SOCIAL_LINKS = [
 
 const Footer = () => {
   return (
-    <footer className="pt-24 pb-12 bg-secondary text-white overflow-hidden border-t border-white/5">
+    <footer className="pt-24 pb-12 bg-[#0A1D3D] text-white overflow-hidden border-t border-white/5">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16 px-4">
           {/* Brand Info */}
           <div className="flex flex-col gap-8 max-w-xs">
             <Link href="/" className="flex items-center gap-2">
-              <div className="relative w-40 h-10">
+              <div className="relative w-40 h-10 bg-white/10 backdrop-blur-sm p-2 rounded-xl">
                 <Image
                   src="/images/Logo Blue.png"
                   alt="Star Smiles Dental Care"
                   fill
-                  className="object-contain"
+                  sizes="160px"
+                  className="object-contain brightness-0 invert"
                 />
               </div>
             </Link>
@@ -97,7 +98,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 bg-white/5 rounded-xl flex items-center justify-center text-primary shrink-0 transition-transform hover:scale-110 mt-0.5">
-                    <Mail size={22} />
+                    <MapPin size={22} />
                  </div>
                 <div className="min-w-0">
                   <div className="font-bold mb-1 text-base">Official Support</div>

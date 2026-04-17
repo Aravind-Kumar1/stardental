@@ -2,17 +2,19 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import Highlights from "@/components/sections/Highlights";
-
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
-import VideoGallery from "@/components/sections/VideoGallery";
-import Gallery from "@/components/sections/Gallery";
-import Testimonials from "@/components/sections/Testimonials";
-import Contact from "@/components/sections/Contact";
 import CTA from "@/components/sections/CTA";
-import FAQ from "@/components/sections/FAQ";
-import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import dynamic from "next/dynamic";
+
+const WhyChooseUs = dynamic(() => import("@/components/sections/WhyChooseUs"));
+const VideoGallery = dynamic(() => import("@/components/sections/VideoGallery"));
+const Gallery = dynamic(() => import("@/components/sections/Gallery"));
+const Testimonials = dynamic(() => import("@/components/sections/Testimonials"));
+const Contact = dynamic(() => import("@/components/sections/Contact"));
+const FAQ = dynamic(() => import("@/components/sections/FAQ"));
+const WhatsAppButton = dynamic(() => import("@/components/ui/WhatsAppButton"));
+
 
 export default function Home() {
   return (

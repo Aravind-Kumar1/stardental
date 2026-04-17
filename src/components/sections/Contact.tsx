@@ -43,7 +43,7 @@ export default function Contact() {
             
             <div className="space-y-10">
               <div className="flex gap-4 sm:gap-6 items-start">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-2xl flex items-center justify-center text-primary shrink-0 shadow-sm border border-border/50 transition-transform hover:scale-110">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#EEF5FF] to-[#FEFEFF] rounded-2xl flex items-center justify-center text-primary shrink-0 shadow-sm border border-primary/10 transition-transform hover:scale-110">
                   <MapPin size={24} />
                 </div>
                 <div>
@@ -55,7 +55,7 @@ export default function Contact() {
               </div>
 
               <div className="flex gap-4 sm:gap-6 items-start">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-2xl flex items-center justify-center text-primary shrink-0 shadow-sm border border-border/50">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#EEF5FF] to-[#FEFEFF] rounded-2xl flex items-center justify-center text-primary shrink-0 shadow-sm border border-primary/10">
                   <Clock size={24} />
                 </div>
                 <div>
@@ -65,7 +65,7 @@ export default function Contact() {
               </div>
 
               <div className="flex gap-4 sm:gap-6 items-start">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-2xl flex items-center justify-center text-primary shrink-0 shadow-sm border border-border/50">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#EEF5FF] to-[#FEFEFF] rounded-2xl flex items-center justify-center text-primary shrink-0 shadow-sm border border-primary/10">
                   <Phone size={24} />
                 </div>
                 <div>

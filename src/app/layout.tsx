@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     "kids dentist",
     "emergency dentist",
   ],
+  icons: {
+    icon: "/images/Logo Blue.png",
+  },
 };
 
 export const viewport = {
@@ -39,7 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} h-full antialiased scroll-smooth`}
+      className={`${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans selection:bg-primary/20 selection:text-primary">
         <Suspense fallback={null}>

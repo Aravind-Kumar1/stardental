@@ -76,10 +76,10 @@ const Popup = () => {
                   <Calendar size={32} />
                 </div>
                 <h2 className="text-4xl font-display font-bold leading-tight mb-4">
-                  Book Your <span className="italic opacity-80">Consultation</span>
+                  Book Your <span className="italic">Consultation</span>
                 </h2>
                 <p className="text-white/80 font-medium leading-relaxed">
-                  Join 10k+ happy patients who trust our professional dental care in Manikonda.
+                  Join <strong className="text-white font-black">10k+</strong> happy patients who trust our professional dental care in Manikonda.
                 </p>
               </div>
 
