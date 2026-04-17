@@ -29,6 +29,8 @@ export const viewport = {
   initialScale: 1,
 };
 
+import Popup from "@/components/ui/Popup";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,7 +42,9 @@ export default function RootLayout({
       className={`${poppins.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-sans selection:bg-primary/20 selection:text-primary">
+        <ScrollToTop />
         {children}
+        <Popup />
         <a 
           href="https://wa.me/918867462440" 
           target="_blank" 

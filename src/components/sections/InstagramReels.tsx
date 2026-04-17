@@ -14,7 +14,7 @@ const reels = [
 
 const InstagramReels = () => {
   return (
-    <section className="section-padding bg-white relative overflow-hidden">
+    <section className="section-padding bg-background relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-1/4 -right-20 w-80 h-80 bg-primary/5 rounded-full blur-[100px] -z-10" />
       <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-accent/5 rounded-full blur-[100px] -z-10" />

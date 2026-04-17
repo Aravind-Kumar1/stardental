@@ -32,7 +32,7 @@ const patientPoints = [
 export default function AboutFull() {
   return (
     <>
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-background">
         <div className="container-custom max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ export default function AboutFull() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl lg:text-4xl font-display font-bold text-secondary mb-8"
+            className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-secondary mb-8"
           >
             Complete oral healthcare in Manikonda
           </motion.h2>
@@ -72,7 +72,7 @@ export default function AboutFull() {
         </div>
       </section>
 
-      <section className="section-padding bg-slate-50/80 border-y border-border/60">
+      <section className="section-padding bg-background/80 border-y border-border/60">
         <div className="container-custom max-w-5xl grid md:grid-cols-2 gap-6 lg:gap-8">
           <motion.article
             initial={{ opacity: 0, y: 24 }}
@@ -83,7 +83,7 @@ export default function AboutFull() {
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
               <ShieldCheck className="text-primary" size={28} />
             </div>
-            <h3 className="text-2xl font-display font-bold text-secondary mb-3">Our mission</h3>
+            <h3 className="text-xl sm:text-2xl font-display font-bold text-secondary mb-3">Our mission</h3>
             <p className="text-muted-foreground text-[1.05rem] leading-relaxed">
               To provide high-quality, affordable, and painless dental care while ensuring every
               patient feels comfortable and confident about their smile.
@@ -99,7 +99,7 @@ export default function AboutFull() {
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
               <Sparkles className="text-primary" size={28} />
             </div>
-            <h3 className="text-2xl font-display font-bold text-secondary mb-3">Our vision</h3>
+            <h3 className="text-xl sm:text-2xl font-display font-bold text-secondary mb-3">Our vision</h3>
             <p className="text-muted-foreground text-[1.05rem] leading-relaxed">
               To become the most trusted dental clinic in Hyderabad by delivering advanced
               treatments with a patient-first approach.
@@ -108,7 +108,7 @@ export default function AboutFull() {
         </div>
       </section>
 
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-background">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -116,7 +116,7 @@ export default function AboutFull() {
             viewport={{ once: true }}
             className="max-w-2xl mb-12"
           >
-            <h2 className="text-3xl lg:text-4xl font-display font-bold text-secondary mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-secondary mb-4">
               Why choose us
             </h2>
             <p className="text-muted-foreground text-lg">
@@ -142,7 +142,7 @@ export default function AboutFull() {
         </div>
       </section>
 
-      <section className="section-padding bg-slate-50/50">
+      <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <motion.div
@@ -153,8 +153,8 @@ export default function AboutFull() {
             >
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] max-h-[520px]">
                 <Image
-                  src="/images/doctor.png"
-                  alt="Dentist at our Manikonda clinic"
+                  src="/images/dental_doctor.jpeg"
+                  alt="Senior Dentist at Star Smiles Dental Care"
                   fill
                   className="object-cover"
                 />
@@ -166,7 +166,7 @@ export default function AboutFull() {
                 <Stethoscope size={18} />
                 Meet our expert dentist
               </div>
-              <h2 className="text-3xl lg:text-4xl font-display font-bold text-secondary mb-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-secondary mb-6">
                 Experienced care you can trust
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -194,13 +194,13 @@ export default function AboutFull() {
         </div>
       </section>
 
-      <section className="section-padding bg-white border-t border-border/60">
+      <section className="section-padding bg-background border-t border-border/60">
         <div className="container-custom max-w-4xl">
           <div className="flex items-center gap-3 mb-6 text-primary">
             <HeartHandshake size={28} />
             <span className="font-bold uppercase tracking-widest text-sm">Patient experience</span>
           </div>
-          <h2 className="text-3xl lg:text-4xl font-display font-bold text-secondary mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-secondary mb-6">
             Comfortable visits, clear guidance
           </h2>
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed">

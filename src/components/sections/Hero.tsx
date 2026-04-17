@@ -26,7 +26,7 @@ const StatCounter = ({ value, suffix = "", decimals = 0 }: { value: number; suff
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-white min-h-[85vh] flex flex-col justify-between">
+    <section className="relative overflow-hidden bg-background min-h-[85vh] flex flex-col justify-between">
       {/* Full Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -41,12 +41,12 @@ const Hero = () => {
         <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px] lg:hidden" />
       </div>
 
-      <div className="container-custom relative z-10 w-full pt-48 pb-8 flex-grow flex items-center">
+      <div className="container-custom relative z-10 w-full pt-48 pb-8 flex-grow flex items-center justify-center lg:justify-start">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-2xl"
+          className="max-w-2xl text-center lg:text-left flex flex-col items-center lg:items-start"
         >
           <h1 className="heading-hero mb-6">
             Advanced Dental Care in <span className="gradient-text italic">Manikonda</span>
@@ -56,13 +56,13 @@ const Hero = () => {
             Experience world-class dental treatments with cutting-edge technology and a compassionate touch. We prioritize your comfort and long-term oral health.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <Link
               href="/book-appointment"
               className={cn(
                 "inline-flex items-center justify-center rounded-xl transition-all active:scale-[0.98]",
                 "bg-primary text-white hover:bg-primary-dark shadow-premium shadow-primary/20",
-                "px-8 py-4 text-lg font-semibold group"
+                "px-6 py-3.5 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold group w-full sm:w-auto"
               )}
             >
               Book appointment
@@ -73,7 +73,7 @@ const Hero = () => {
               className={cn(
                 "inline-flex items-center justify-center rounded-xl transition-all active:scale-[0.98]",
                 "bg-white/80 backdrop-blur-sm border border-primary/20 text-primary hover:bg-white",
-                "px-8 py-4 text-lg font-semibold"
+                "px-6 py-3.5 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
               )}
             >
               Explore services

@@ -3,6 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { Menu, X, Phone, Calendar, ChevronDown } from "lucide-react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { servicesData } from "@/lib/services-data";
@@ -10,6 +11,7 @@ import { servicesData } from "@/lib/services-data";
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [activeDropdown, setActiveDropdown] = React.useState<string | null>(null);
+  const pathname = usePathname();
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -51,7 +53,10 @@ const Navbar = () => {
              >
                 <Link
                   href={link.href}
-                  className="text-[1rem] font-bold text-secondary hover:text-primary transition-colors flex items-center gap-1.5 py-8"
+                  className={cn(
+                    "text-[1rem] font-bold transition-colors flex items-center gap-1.5 py-8",
+                    pathname === link.href ? "text-primary" : "text-secondary hover:text-primary"
+                  )}
                 >
                   {link.name}
                   {link.dropdown && (
@@ -120,7 +125,10 @@ const Navbar = () => {
                 <Link
                   href={link.href}
                   onClick={() => !link.dropdown && setIsOpen(false)}
-                  className="text-lg font-bold text-secondary"
+                  className={cn(
+                    "text-lg font-bold",
+                    pathname === link.href ? "text-primary" : "text-secondary"
+                  )}
                 >
                   {link.name}
                 </Link>

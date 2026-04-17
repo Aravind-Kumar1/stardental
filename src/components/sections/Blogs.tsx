@@ -12,7 +12,7 @@ const Blogs = ({ limit, showIntro = true }: BlogsProps) => {
   const posts = typeof limit === "number" ? blogPosts.slice(0, limit) : blogPosts;
 
   return (
-    <section id="blogs" className="section-padding bg-slate-50/40">
+    <section id="blogs" className="section-padding bg-background">
       <div className="container-custom">
         {showIntro && (
           <div className="max-w-3xl mb-12">

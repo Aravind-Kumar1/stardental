@@ -13,7 +13,7 @@ export default function AboutPage() {
         <p className="text-primary font-bold text-sm uppercase tracking-widest mb-4">
           About us
         </p>
-        <h1 className="text-secondary text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6 tracking-tight max-w-4xl mx-auto leading-tight">
+        <h1 className="text-secondary text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 tracking-tight max-w-4xl mx-auto leading-tight">
           Best Dental Clinic in Manikonda –{" "}
           <span className="text-primary">Advanced &amp; Trusted Dental Care</span>
         </h1>

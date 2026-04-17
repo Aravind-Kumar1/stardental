@@ -49,7 +49,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="max-w-xl">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary mb-6 tracking-tight leading-tight">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-secondary mb-6 tracking-tight leading-tight">
                 {service.detailHeading}
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">

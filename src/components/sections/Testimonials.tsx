@@ -60,7 +60,7 @@ const GoogleIcon = () => (
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="section-padding">
+    <section id="testimonials" className="section-padding bg-background relative overflow-hidden">
       <div className="container-custom px-6 lg:px-12">
         <div className="text-left mb-8 max-w-4xl">
           <span className="block font-bold text-secondary text-base uppercase tracking-[0.2em] mb-4">Why People give us 5 star ratings</span>
@@ -75,11 +75,11 @@ export default function Testimonials() {
           </a>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 md:mx-0 md:px-0">
           {testimonials.map((t, index) => (
             <motion.div 
               key={index} 
-              className="bg-white p-8 rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/40 relative group hover:shadow-xl transition-all duration-500"
+              className="min-w-[85vw] md:min-w-0 bg-background p-8 rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/40 relative group hover:shadow-xl transition-all duration-500 snap-center h-full flex flex-col"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -103,7 +103,7 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <p className="text-slate-600 leading-relaxed italic">"{t.text}"</p>
+              <p className="text-slate-600 leading-relaxed italic flex-grow text-sm sm:text-base">"{t.text}"</p>
             </motion.div>
           ))}
         </div>

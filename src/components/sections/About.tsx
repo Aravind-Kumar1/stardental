@@ -74,7 +74,7 @@ const About = () => {
                 className={cn(
                   "inline-flex items-center justify-center gap-2 rounded-xl transition-all active:scale-[0.98]",
                   "bg-primary/5 border border-primary/20 text-primary hover:bg-primary hover:text-white",
-                  "px-8 py-3.5 text-base font-bold shadow-sm"
+                  "px-6 py-3 lg:px-8 lg:py-3.5 text-sm lg:text-base font-bold shadow-sm"
                 )}
               >
                 Read our full story

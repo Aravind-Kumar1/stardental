@@ -62,15 +62,15 @@ const FAQ = () => {
               {faqs.map((faq, index) => (
                 <div key={index} className="premium-card overflow-hidden">
                    <button
-                     className="w-full text-left p-6 flex items-center justify-between hover:bg-slate-50/50 transition-colors"
+                     className="w-full text-left p-5 lg:p-6 flex items-center justify-between hover:bg-slate-50/50 transition-colors"
                      onClick={() => setActiveIndex(activeIndex === index ? null : index)}
                    >
-                      <span className="font-bold text-base lg:text-lg text-secondary pr-6">{faq.question}</span>
+                      <span className="font-bold text-sm sm:text-base lg:text-lg text-secondary pr-4">{faq.question}</span>
                       <div className={cn(
-                        "w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-300",
+                        "w-8 h-8 lg:w-9 lg:h-9 rounded-lg flex items-center justify-center transition-all duration-300 shrink-0",
                         activeIndex === index ? "bg-primary text-white" : "bg-primary/10 text-primary"
                       )}>
-                         {activeIndex === index ? <Minus size={18} /> : <Plus size={18} />}
+                         {activeIndex === index ? <Minus size={16} /> : <Plus size={16} />}
                       </div>
                    </button>
                    <AnimatePresence>
@@ -81,7 +81,7 @@ const FAQ = () => {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3 }}
                         >
-                           <div className="px-6 pb-6 text-body border-t border-border/50 pt-5 text-sm">
+                           <div className="px-5 lg:px-6 pb-5 lg:pb-6 text-body border-t border-border/50 pt-4 text-xs sm:text-sm">
                               {faq.answer}
                            </div>
                         </motion.div>

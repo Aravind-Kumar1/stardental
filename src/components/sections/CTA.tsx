@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const CTA = () => {
   return (
-    <section className="section-padding bg-white relative overflow-hidden">
+    <section className="section-padding bg-background relative overflow-hidden">
       <div className="container-custom relative z-10">
         <div className="bg-secondary rounded-[2.5rem] lg:rounded-[3.5rem] p-8 lg:p-16 shadow-2xl shadow-slate-900/10 relative overflow-hidden">
           {/* Decorative blurry backgrounds inside card */}
@@ -13,16 +13,16 @@ const CTA = () => {
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
             {/* Left: Content */}
-            <div className="max-w-3xl text-left">
+            <div className="max-w-3xl text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/5 text-primary font-bold text-sm mb-8 border border-white/10 backdrop-blur-sm">
                   Ready for Your Transformation?
               </div>
 
-              <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display font-bold mb-6 leading-[1.15] text-white">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[3.5rem] font-display font-bold mb-6 leading-[1.15] text-white">
                   Book your <span className="text-primary italic">consultation</span> today
               </h2>
 
-              <p className="text-xl text-slate-400 mb-0 leading-relaxed max-w-xl">
+              <p className="text-base lg:text-xl text-slate-400 mb-0 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 Get treated by experienced dentists in Manikonda with advanced and painless dental care.
               </p>
               
@@ -43,10 +43,10 @@ const CTA = () => {
             </div>
 
             {/* Right: Buttons */}
-            <div className="flex flex-col gap-6 w-full sm:w-auto shrink-0">
+            <div className="flex flex-col gap-6 w-full sm:w-auto shrink-0 items-center">
               <Link
                 href="/book-appointment"
-                className="inline-flex items-center justify-center rounded-xl transition-all active:scale-[0.98] bg-primary text-white hover:bg-primary/90 px-10 py-5 text-xl font-bold group shadow-xl shadow-primary/20 h-16 sm:min-w-[320px]"
+                className="inline-flex items-center justify-center rounded-xl transition-all active:scale-[0.98] bg-primary text-white hover:bg-primary/90 px-6 py-3.5 lg:px-10 lg:py-5 text-base lg:text-xl font-bold group shadow-xl shadow-primary/20 h-14 lg:h-16 w-full sm:min-w-[320px] max-w-md"
               >
                 Book Consultation
                 <ArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" />
@@ -56,7 +56,7 @@ const CTA = () => {
                 href="https://wa.me/918867462440"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-xl transition-all active:scale-[0.98] border border-slate-200 bg-white text-secondary hover:bg-slate-50 px-10 py-5 text-xl font-bold w-full sm:min-w-[320px] h-16 shadow-sm"
+                className="inline-flex items-center justify-center rounded-xl transition-all active:scale-[0.98] border border-slate-200 bg-white text-secondary hover:bg-slate-50 px-6 py-3.5 lg:px-10 lg:py-5 text-base lg:text-xl font-bold w-full sm:min-w-[320px] h-14 lg:h-16 shadow-sm max-w-md"
               >
                 <svg 
                   viewBox="0 0 24 24" 

@@ -41,6 +41,7 @@
 
   body {
     @apply bg-background text-foreground;
+    background-color: var(--background);
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
@@ -68,19 +69,19 @@
 
 /* Typography Consistency */
 .heading-hero {
-  @apply text-3xl sm:text-4xl lg:text-[3.25rem] font-bold text-secondary leading-[1.1] tracking-tight mb-6;
+  @apply text-2xl sm:text-3xl lg:text-5xl xl:text-[3.25rem] font-bold text-secondary leading-[1.1] tracking-tight mb-6;
 }
 
 .heading-section {
-  @apply text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-secondary leading-[1.2] mb-4;
+  @apply text-xl sm:text-2xl lg:text-[2.5rem] font-bold text-secondary leading-[1.2] mb-4;
 }
 
 .text-body {
-  @apply text-[0.9375rem] sm:text-base lg:text-[1.0625rem] text-muted-foreground leading-relaxed;
+  @apply text-sm sm:text-base lg:text-[1.0625rem] text-muted-foreground leading-relaxed;
 }
 
 .text-body-small {
-  @apply text-sm text-muted-foreground leading-relaxed;
+  @apply text-xs sm:text-sm text-muted-foreground leading-relaxed;
 }
 
 /* Premium Card Style */
@@ -102,6 +103,21 @@
   50% {
     transform: translateY(-6px) scale(1.02);
   }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 /* Utilities */
