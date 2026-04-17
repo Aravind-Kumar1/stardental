@@ -42,7 +42,9 @@ export default function RootLayout({
       className={`${poppins.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-sans selection:bg-primary/20 selection:text-primary">
-        <ScrollToTop />
+        <Suspense fallback={null}>
+          <ScrollToTop />
+        </Suspense>
         {children}
         <Popup />
         <a 
