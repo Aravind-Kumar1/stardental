@@ -55,12 +55,12 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
               {service.benefits.map((benefit, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-3 bg-white p-5 rounded-2xl border border-border/60 shadow-sm"
+                  className="flex items-start gap-3 bg-gradient-to-br from-[#030A14] to-[#1A4996] p-5 rounded-2xl shadow-premium border-none group hover:scale-[1.02] transition-all duration-300"
                 >
-                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle className="text-primary" size={14} />
+                  <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle className="text-[#90B4E7]" size={14} />
                   </div>
-                  <span className="font-semibold text-secondary text-[0.9375rem] leading-snug">{benefit}</span>
+                  <span className="font-semibold text-white text-[0.9375rem] leading-snug tracking-wide">{benefit}</span>
                 </div>
               ))}
             </div>

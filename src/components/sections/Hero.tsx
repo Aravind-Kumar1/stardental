@@ -366,7 +366,7 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="absolute right-0 bottom-0 sm:top-0 w-full sm:w-1/2 h-full hidden sm:flex items-center justify-center sm:justify-end z-0"
+                className="absolute right-0 bottom-0 sm:top-0 w-full sm:w-1/2 h-full hidden sm:flex items-start justify-center sm:justify-center z-0 pt-36 sm:-translate-x-10"
               >
                 <div className="relative w-full h-full">
                   <Image
@@ -376,7 +376,7 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
                     sizes="(max-width: 640px) 50vw, 50vw"
                     className={cn(
                       "object-contain",
-                      slide.imgFit === "contain" ? "scale-105 origin-top-right" : "object-cover"
+                      slide.imgFit === "contain" ? "scale-90 origin-top-right" : "object-cover"
                     )}
                     style={{ objectPosition: slide.imgPos || "right center" }}
                     priority
@@ -411,7 +411,7 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
                       </h1>
                       
                       {/* Mobile Image */}
-                      <div className="sm:hidden -mx-6 w-[calc(100%+3rem)] mt-4 mb-8 flex justify-center overflow-hidden">
+                      <div className="sm:hidden -mx-6 w-[calc(100%+3rem)] mt-12 mb-8 flex justify-center overflow-hidden">
                         <div className="relative w-full aspect-[2/1] max-h-[200px]">
                           <Image
                             src={slide.img}

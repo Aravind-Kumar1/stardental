@@ -132,10 +132,10 @@ export default function AboutFull() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="flex gap-4 items-start bg-muted/50 rounded-2xl p-6 border border-border/40"
+                className="flex gap-4 items-start bg-gradient-to-br from-[#030A14] to-[#1A4996] rounded-2xl p-6 shadow-premium border-none group hover:scale-[1.02] transition-all duration-300"
               >
-                <CheckCircle className="text-primary shrink-0 mt-0.5" size={22} />
-                <span className="font-semibold text-secondary">{item}</span>
+                <CheckCircle className="text-[#90B4E7] shrink-0 mt-0.5" size={22} />
+                <span className="font-semibold text-white tracking-wide">{item}</span>
               </motion.li>
             ))}
           </ul>
