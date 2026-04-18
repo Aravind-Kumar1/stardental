@@ -73,9 +73,9 @@ const About = () => {
               <Link
                 href="/about"
                 className={cn(
-                  "inline-flex items-center justify-center gap-2 rounded-xl transition-all active:scale-[0.98]",
-                  "bg-primary/5 border border-primary/20 text-primary hover:bg-primary hover:text-white",
-                  "px-6 py-3 lg:px-8 lg:py-3.5 text-sm lg:text-base font-bold shadow-sm"
+                  "inline-flex items-center justify-center gap-2 transition-all active:scale-[0.98]",
+                  "bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white rounded-none rounded-tr-[24px]",
+                  "px-8 py-3.5 text-[15px] font-semibold shadow-sm"
                 )}
               >
                 Read our full story

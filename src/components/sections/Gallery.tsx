@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const transformations = [
@@ -52,8 +52,8 @@ export default function Gallery() {
         </div>
       </div>
 
-      <div className="relative flex overflow-hidden group w-full">
-        <div className="flex gap-10 animate-infinite-scroll group-hover:pause-animation py-6">
+      <div className="relative flex overflow-hidden w-full">
+        <div className="flex gap-10 animate-infinite-scroll py-6 hover-pause">
           {scrollItems.map((item, index) => (
             <div 
               key={`${item.title}-${index}`} 
@@ -98,7 +98,7 @@ export default function Gallery() {
         .animate-infinite-scroll {
           animation: infinite-scroll 40s linear infinite;
         }
-        .pause-animation {
+        .hover-pause:hover {
           animation-play-state: paused;
         }
       `}</style>

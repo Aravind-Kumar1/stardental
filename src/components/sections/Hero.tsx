@@ -79,7 +79,7 @@ const slides: Slide[] = [
     img: "/hero_3.svg",
     imgAlt: "Dental implant and aligner treatment",
     imgFit: "contain" as const,
-    imgPos: "right top",
+    imgPos: "right bottom",
   },
   {
     id: 4,
@@ -94,7 +94,7 @@ const slides: Slide[] = [
     img: "/hero_fourth.png",
     imgAlt: "Dental Implants in Manikonda",
     imgFit: "contain" as const,
-    imgPos: "right top",
+    imgPos: "right bottom",
   },
 ];
 
@@ -114,7 +114,7 @@ const aboutSlides: Slide[] = [
     img: "/about_first.png",
     imgAlt: "Best Dental Clinic in Manikonda",
     imgFit: "contain" as const,
-    imgPos: "right top",
+    imgPos: "right bottom",
   },
   {
     id: 2,
@@ -158,7 +158,7 @@ const blogPlaceholderSlides: Slide[] = [
     img: "/blog.png",
     imgAlt: "Helpful Dental Articles",
     imgFit: "contain" as const,
-    imgPos: "right top",
+    imgPos: "right bottom",
     cta1Text: "Explore",
     hideCta2: true,
   }
@@ -178,7 +178,7 @@ const contactPlaceholderSlides: Slide[] = [
     img: "/contact.png",
     imgAlt: "Get in Touch With Our Experts",
     imgFit: "contain" as const,
-    imgPos: "right top",
+    imgPos: "right bottom",
     hideCta1: true,
     hideCta2: true,
   }
@@ -221,7 +221,7 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
           img: serviceContext.heroImageUrl || "/ser_page.png",
           imgAlt: serviceContext.title,
           imgFit: "contain" as const,
-          imgPos: "right top",
+          imgPos: "right bottom",
           cta2Text: "Consult Now",
         }
       ] : servicesPlaceholderSlides;
@@ -299,19 +299,19 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
               transition={{ duration: 0.6, ease: "easeInOut" }}
               className={cn(
                 "relative sm:absolute inset-0 w-full z-20 bg-[#1A4996] flex items-center justify-center",
-                "h-auto sm:h-full max-sm:pb-0"
+                "h-auto sm:h-full max-sm:pb-6"
               )}
             >
               <div className="container-custom mx-auto px-6 lg:px-12 w-full h-full">
                 <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:gap-12 items-center h-full pt-14 lg:pt-0">
                   {/* Center Image - Order 1 on mobile */}
-                  <div className="order-1 lg:order-2 relative h-[42vh] lg:h-[90vh] w-full flex items-end justify-center z-20 lg:-translate-y-8 mt-6">
+                  <div className="order-1 lg:order-2 relative h-[42vh] lg:h-[80vh] w-full flex items-end justify-center z-20 lg:-translate-y-6 mt-6">
                     <Image
-                      src="/hero_sec.png"
+                      src="/doc_banner.png"
                       alt="Prof Dr. Manjunatha Reddy.C"
                       fill
                       sizes="(max-width: 1024px) 100vw, 33vw"
-                      className="object-contain object-bottom drop-shadow-2xl scale-100 lg:scale-125 origin-bottom"
+                      className="object-contain object-bottom drop-shadow-2xl scale-110 lg:scale-[1.25] origin-bottom"
                       priority
                     />
                   </div>
@@ -366,7 +366,7 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="absolute right-0 bottom-0 sm:top-0 w-full sm:w-1/2 h-full hidden sm:flex items-start justify-center sm:justify-center z-0 pt-36 sm:-translate-x-10"
+                className="absolute right-0 bottom-0 sm:top-0 w-full sm:w-1/2 h-full hidden sm:flex items-end justify-center sm:justify-center z-0 sm:-translate-x-10"
               >
                 <div className="relative w-full h-full">
                   <Image
@@ -376,7 +376,7 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
                     sizes="(max-width: 640px) 50vw, 50vw"
                     className={cn(
                       "object-contain",
-                      slide.imgFit === "contain" ? "scale-90 origin-top-right" : "object-cover"
+                      slide.imgFit === "contain" ? "scale-100 origin-bottom-right" : "object-cover"
                     )}
                     style={{ objectPosition: slide.imgPos || "right center" }}
                     priority
