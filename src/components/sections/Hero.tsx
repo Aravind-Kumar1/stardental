@@ -255,15 +255,21 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
   const slide = currentSlides[current];
 
   const textVariants = {
-    enter: (dir: number) => ({ opacity: 0, y: dir > 0 ? 40 : -40 }),
-    center: { opacity: 1, y: 0 },
-    exit: (dir: number) => ({ opacity: 0, y: dir > 0 ? -40 : 40 }),
-  };
-
-  const imgVariants = {
     enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 60 : -60 }),
     center: { opacity: 1, x: 0 },
     exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? -60 : 60 }),
+  };
+
+  const imgVariants = {
+    enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 80 : -80 }),
+    center: { opacity: 1, x: 0 },
+    exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? -80 : 80 }),
+  };
+
+  const fullSlideVariants = {
+    enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%", opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%", opacity: 0 }),
   };
 
   return (
@@ -274,177 +280,38 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
       <section
         className={cn(
           "relative w-full overflow-hidden",
-          ["blog", "contact", "single_service"].includes(page as string) ? "h-auto min-h-0 sm:min-h-[420px] max-sm:pb-0" : "h-auto sm:h-[80vh] sm:min-h-[540px] max-sm:pb-0"
+          ["blog", "contact", "single_service"].includes(page as string) ? "h-auto min-h-0 sm:min-h-[420px] max-sm:pb-0" : "h-auto sm:h-[80vh] sm:min-h-[540px] max-sm:pb-6"
         )}
         style={{ 
           background: "linear-gradient(180deg, #EEF5FF 0%, #FEFEFF 51%, #EEF5FF 95%)"
         }}
       >
         {/* ── RIGHT HALF — image ── */}
-        <AnimatePresence initial={false} custom={direction}>
-          {!slide.isCustom && (
-            <motion.div
-              key={`img-${slide.id}`}
-            custom={direction}
-            variants={imgVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="absolute right-0 bottom-0 sm:top-0 w-full sm:w-1/2 h-[45%] sm:h-full hidden sm:flex items-center justify-center sm:justify-end z-0"
-          >
-            <div className="relative w-full h-full">
-              {slide.imgFit === "contain" ? (
-                /* Slide 1 — increased size and aligned to bleed into top right */
-                <div className="absolute inset-0 flex items-end sm:items-center justify-center sm:justify-end pb-4 sm:pb-0 pt-0 sm:pt-20 lg:pt-24">
-                  <div className="relative w-[90%] h-[90%] sm:w-[110%] sm:h-[110%] sm:translate-x-4 lg:translate-x-8">
-                    <Image
-                      src={slide.img}
-                      alt={slide.imgAlt}
-                      fill
-                      sizes="(max-width: 640px) 50vw, 50vw"
-                      className="object-contain scale-100 sm:scale-105 origin-center sm:origin-top-right"
-                      style={{ objectPosition: "right center" }}
-                      priority
-                    />
-                  </div>
-                </div>
-              ) : (
-                <Image
-                  src={slide.img}
-                  alt={slide.imgAlt}
-                  fill
-                  sizes="(max-width: 640px) 50vw, 50vw"
-                  className="object-cover"
-                  style={{ objectPosition: slide.imgPos }}
-                  priority
-                />
-                )}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* ── LEFT HALF — text content ── */}
-        <div className="relative h-auto sm:h-full flex items-start sm:items-center z-10 pointer-events-none">
-          <div className="container-custom w-full pointer-events-auto px-6 sm:px-0">
-            <div className={cn(
-              "w-full sm:w-[55%] lg:w-[65%] flex flex-col items-center sm:items-start text-center sm:text-left pr-2 lg:pr-0 z-10 pt-24 sm:pt-0",
-              ["blog", "contact", "single_service"].includes(page as string) ? "pt-20 md:pt-20 lg:pt-24" : "translate-y-0 sm:translate-y-6 lg:translate-y-12"
-            )}>
-              <AnimatePresence mode="wait" custom={direction}>
-                {!slide.isCustom && (
-                  <motion.div
-                  key={`content-${slide.id}`}
-                  custom={direction}
-                  variants={textVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="flex flex-col items-center sm:items-start w-full pb-1 sm:pb-0"
-                >
-                  {/* Badge */}
-                  {slide.badge && (
-                    <span className="inline-block mb-5 px-4 py-1.5 rounded-full bg-[#1a3a6b]/10 text-[#1a3a6b] text-sm font-semibold tracking-wide">
-                      ✦ {slide.badge}
-                    </span>
-                  )}
-
-                  {/* Heading — 2 lines */}
-                  <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a3a6b] leading-[1.2] mb-2 sm:mb-5 lg:whitespace-nowrap text-center sm:text-left">
-                    {slide.heading}
-                  </h1>
-
-                  {/* 
-                  MOBILE IMAGE - Stacks between Heading and Buttons on mobile 
-                  */}
-                  {!slide.isCustom && (
-                    <div className="sm:hidden w-[90%] mx-auto mt-6 mb-2 flex justify-center overflow-visible">
-                      <div className="relative w-full aspect-[4/3] max-h-[220px]">
-                        <Image
-                          src={slide.img}
-                          alt={slide.imgAlt}
-                          fill
-                          className="object-contain object-center scale-[1.15]"
-                          priority
-                        />
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Sub - Hidden on mobile */}
-                  <p className="hidden sm:block text-[11px] sm:text-lg text-gray-600 leading-snug sm:leading-relaxed mb-4 sm:mb-8 max-w-xl">
-                    {slide.sub}
-                  </p>
-
-                  {/* CTAs */}
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto pt-2 sm:pt-2">
-                    {!(slide as any).hideCta1 && (
-                      <Link
-                        href={(slide as any).cta1Href || "/book-appointment"}
-                        className={cn(
-                          "inline-flex items-center justify-center transition-all duration-300 active:scale-[0.98] whitespace-nowrap",
-                          "bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white hover:brightness-110 shadow-premium hover:shadow-xl",
-                          "rounded-none rounded-tr-[16px] sm:rounded-tr-[24px]",
-                          "px-2 sm:px-8 py-2.5 sm:py-3.5 text-[13px] sm:text-[15px] font-semibold w-[200px] sm:w-[220px] mx-auto sm:mx-0 sm:flex-1 tracking-tight sm:tracking-wide"
-                        )}
-                      >
-                        {(slide as any).cta1Text || "Book appointment"}
-                      </Link>
-                    )}
-                    {!(slide as any).hideCta2 && (
-                      <Link
-                        href={(slide as any).cta2Href || "/services"}
-                        className={cn(
-                          "inline-flex items-center justify-center transition-all duration-300 active:scale-[0.98] whitespace-nowrap",
-                          "bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white hover:brightness-110 shadow-premium hover:shadow-xl",
-                          "rounded-none rounded-tr-[16px] sm:rounded-tr-[24px]",
-                          "px-2 sm:px-8 py-2.5 sm:py-3.5 text-[13px] sm:text-[15px] font-semibold w-[200px] sm:w-[220px] mx-auto sm:mx-0 sm:flex-1 tracking-tight sm:tracking-wide"
-                        )}
-                      >
-                        {(slide as any).cta2Text || "Explore services"}
-                      </Link>
-                    )}
-                  </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-        {/* ── CUSTOM SLIDE OVERLAY (Doctor) ── */}
-        <AnimatePresence initial={false} custom={direction}>
-          {slide.isCustom && (
+        <AnimatePresence initial={false} custom={direction} mode="popLayout">
+          {slide.isCustom ? (
             <motion.div
               key={`custom-${slide.id}`}
               custom={direction}
-              variants={imgVariants}
+              variants={fullSlideVariants}
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.5, ease: "easeInOut" }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
               className={cn(
                 "relative sm:absolute inset-0 w-full z-20 bg-[#1A4996] flex items-center justify-center",
                 "h-auto sm:h-full max-sm:pb-0"
               )}
             >
               <div className="container-custom mx-auto px-6 lg:px-12 w-full h-full">
-                <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:gap-12 items-center h-full pt-24 lg:pt-0">
-                  
+                <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:gap-12 items-center h-full pt-14 lg:pt-0">
                   {/* Center Image - Order 1 on mobile */}
-                  <div className="order-1 lg:order-2 relative h-[28vh] lg:h-[90vh] w-full flex items-end justify-center z-20 lg:-translate-y-8">
+                  <div className="order-1 lg:order-2 relative h-[42vh] lg:h-[90vh] w-full flex items-end justify-center z-20 lg:-translate-y-8 mt-6">
                     <Image
                       src="/hero_sec.png"
                       alt="Prof Dr. Manjunatha Reddy.C"
                       fill
                       sizes="(max-width: 1024px) 100vw, 33vw"
-                      className="object-contain object-bottom drop-shadow-2xl scale-125 lg:scale-125 origin-bottom"
+                      className="object-contain object-bottom drop-shadow-2xl scale-100 lg:scale-125 origin-bottom"
                       priority
                     />
                   </div>
@@ -488,6 +355,97 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
                 </div>
               </div>
             </motion.div>
+          ) : (
+            <div className="w-full h-full relative">
+              {/* Standard Image Animation */}
+              <motion.div
+                key={`img-${slide.id}`}
+                custom={direction}
+                variants={imgVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="absolute right-0 bottom-0 sm:top-0 w-full sm:w-1/2 h-full hidden sm:flex items-center justify-center sm:justify-end z-0"
+              >
+                <div className="relative w-full h-full">
+                  <Image
+                    src={slide.img}
+                    alt={slide.imgAlt}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 50vw"
+                    className={cn(
+                      "object-contain",
+                      slide.imgFit === "contain" ? "scale-105 origin-top-right" : "object-cover"
+                    )}
+                    style={{ objectPosition: slide.imgPos || "right center" }}
+                    priority
+                  />
+                </div>
+              </motion.div>
+
+              {/* Standard Text Animation */}
+              <div className="relative h-full flex items-center z-10 pointer-events-none">
+                <div className="container-custom w-full pointer-events-auto px-6 sm:px-0">
+                  <div className={cn(
+                    "w-full sm:w-[55%] lg:w-[65%] flex flex-col items-center sm:items-start text-center sm:text-left pr-2 lg:pr-0 z-10 pt-18 sm:pt-0",
+                    ["blog", "contact", "single_service"].includes(page as string) ? "pt-24 md:pt-24 lg:pt-28" : "translate-y-0 sm:translate-y-6 lg:translate-y-12"
+                  )}>
+                    <motion.div
+                      key={`content-${slide.id}`}
+                      custom={direction}
+                      variants={textVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      className="flex flex-col items-center sm:items-start w-full"
+                    >
+                      {slide.badge && (
+                        <span className="inline-block mb-5 px-4 py-1.5 rounded-full bg-[#1a3a6b]/10 text-[#1a3a6b] text-sm font-semibold tracking-wide">
+                          ✦ {slide.badge}
+                        </span>
+                      )}
+                      <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a3a6b] leading-[1.2] mb-2 sm:mb-5 lg:whitespace-nowrap text-center sm:text-left">
+                        {slide.heading}
+                      </h1>
+                      
+                      {/* Mobile Image */}
+                      <div className="sm:hidden -mx-6 w-[calc(100%+3rem)] mt-4 mb-8 flex justify-center overflow-hidden">
+                        <div className="relative w-full aspect-[2/1] max-h-[200px]">
+                          <Image
+                            src={slide.img}
+                            alt={slide.imgAlt}
+                            fill
+                            className="object-contain object-center scale-[1.1]"
+                            priority
+                          />
+                        </div>
+                      </div>
+
+                      <p className="hidden sm:block text-lg text-gray-600 mb-8 max-w-xl">
+                        {slide.sub}
+                      </p>
+
+                      <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2 mb-6">
+                        <Link
+                          href={(slide as any).cta1Href || "/book-appointment"}
+                          className="inline-flex items-center justify-center bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white rounded-none rounded-tr-[24px] px-8 py-3.5 text-[15px] font-semibold"
+                        >
+                          {(slide as any).cta1Text || "Book appointment"}
+                        </Link>
+                        <Link
+                          href={(slide as any).cta2Href || "/services"}
+                          className="inline-flex items-center justify-center bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white rounded-none rounded-tr-[24px] px-8 py-3.5 text-[15px] font-semibold"
+                        >
+                          {(slide as any).cta2Text || "Explore services"}
+                        </Link>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            </div>
           )}
         </AnimatePresence>
       </section>

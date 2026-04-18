@@ -153,7 +153,7 @@ export default function AboutFull() {
             >
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl aspect-[1.1/1] lg:aspect-[4/3.2] w-full">
                 <Image
-                  src="/images/dental_doctor.jpeg"
+                  src="/doc_2.jpeg"
                   alt="Senior Dentist at Star Smiles Dental Care"
                   fill
                   sizes="(max-width: 1024px) 100vw, 56vw"
