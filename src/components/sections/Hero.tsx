@@ -141,6 +141,7 @@ const servicesPlaceholderSlides: Slide[] = [
     ),
     sub: s.isCustom ? s.sub : "We offer a wide range of dental treatments designed to improve your oral health, restore functionality, and enhance your smile. Our services include preventive, restorative, cosmetic, and emergency dental care—routine and advanced procedures under one roof.",
     img: "/ser_page.png",
+    hideCta2: true,
   }))
 ];
 
@@ -305,13 +306,13 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
               <div className="container-custom mx-auto px-6 lg:px-12 w-full h-full">
                 <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:gap-12 items-center h-full pt-14 lg:pt-0">
                   {/* Center Image - Order 1 on mobile */}
-                  <div className="order-1 lg:order-2 relative h-[42vh] lg:h-[80vh] w-full flex items-end justify-center z-20 lg:-translate-y-6 mt-6">
+                  <div className="order-1 lg:order-2 relative h-[42vh] lg:h-[70vh] xl:h-[76vh] w-full flex items-end justify-center z-20 mt-6 lg:mt-0 lg:translate-y-4 xl:translate-y-2">
                     <Image
-                      src="/doc_banner.png"
+                      src="/hero_sec.png"
                       alt="Prof Dr. Manjunatha Reddy.C"
                       fill
                       sizes="(max-width: 1024px) 100vw, 33vw"
-                      className="object-contain object-bottom drop-shadow-2xl scale-110 lg:scale-[1.25] origin-bottom"
+                      className="object-contain object-bottom drop-shadow-2xl scale-110 lg:scale-[1.02] xl:scale-[1.08] origin-bottom"
                       priority
                     />
                   </div>
@@ -428,18 +429,22 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
                       </p>
 
                       <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2 mb-6">
-                        <Link
-                          href={(slide as any).cta1Href || "/book-appointment"}
-                          className="inline-flex items-center justify-center bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white rounded-none rounded-tr-[24px] px-8 py-3.5 text-[15px] font-semibold"
-                        >
-                          {(slide as any).cta1Text || "Book appointment"}
-                        </Link>
-                        <Link
-                          href={(slide as any).cta2Href || "/services"}
-                          className="inline-flex items-center justify-center bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white rounded-none rounded-tr-[24px] px-8 py-3.5 text-[15px] font-semibold"
-                        >
-                          {(slide as any).cta2Text || "Explore services"}
-                        </Link>
+                        {!(slide as any).hideCta1 && (
+                          <Link
+                            href={(slide as any).cta1Href || "/book-appointment"}
+                            className="inline-flex items-center justify-center bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white rounded-none rounded-tr-[24px] px-8 py-3.5 text-[15px] font-semibold"
+                          >
+                            {(slide as any).cta1Text || "Book appointment"}
+                          </Link>
+                        )}
+                        {!(slide as any).hideCta2 && (
+                          <Link
+                            href={(slide as any).cta2Href || "/services"}
+                            className="inline-flex items-center justify-center bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white rounded-none rounded-tr-[24px] px-8 py-3.5 text-[15px] font-semibold"
+                          >
+                            {(slide as any).cta2Text || "Explore services"}
+                          </Link>
+                        )}
                       </div>
                     </motion.div>
                   </div>

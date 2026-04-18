@@ -31,7 +31,16 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border/40 shadow-sm"
     >
       <div className="container-custom flex items-center justify-between h-16 sm:h-20 px-6">
-        <Link href="/" className="flex items-center gap-2">
+        <Link 
+          href="/" 
+          onClick={(e) => {
+            if (pathname === '/') {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
+          className="flex items-center gap-2"
+        >
           <div className="relative w-36 h-8 sm:w-48 sm:h-12">
             <Image
               src="/images/Logo Blue.png"
@@ -57,6 +66,12 @@ const Navbar = () => {
               >
                 <Link
                   href={link.href}
+                  onClick={(e) => {
+                    if (pathname === '/' && link.href === '/') {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }}
                   className={cn(
                     "text-[0.9375rem] font-bold transition-all duration-300 flex items-center gap-1.5 py-8",
                     isActive ? "text-primary scale-105" : "text-secondary hover:text-primary"
@@ -134,7 +149,13 @@ const Navbar = () => {
                 >
                   <Link
                     href={link.href}
-                    onClick={() => !link.dropdown && setIsOpen(false)}
+                    onClick={(e) => {
+                      if (pathname === '/' && link.href === '/') {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }
+                      if (!link.dropdown) setIsOpen(false);
+                    }}
                     className={cn(
                       "text-lg font-bold transition-colors",
                       isActive ? "text-primary" : "text-secondary hover:text-primary"

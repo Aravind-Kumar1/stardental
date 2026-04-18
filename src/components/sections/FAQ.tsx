@@ -48,7 +48,7 @@ const FAQ = () => {
                     Can't find what you're looking for? Our friendly team is here to help you understand your treatment process and options.
                  </p>
                  <Link
-                   href="/#contact"
+                   href="/contact"
                    className="inline-flex items-center gap-2 bg-primary text-white font-bold py-4 px-8 rounded-xl hover:bg-primary-dark transition-all shadow-lg shadow-primary/20 group"
                  >
                    Contact Us

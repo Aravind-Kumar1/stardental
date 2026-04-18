@@ -78,46 +78,47 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="bg-[#f8fbff] p-5 sm:p-8 lg:p-12 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 w-full mx-auto">
-            <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-2 lg:mb-4">Book Your Appointment</h3>
-            <p className="text-slate-600 mb-6 lg:mb-8 font-medium text-sm sm:text-base">Schedule your visit with our expert dental team today.</p>
+          <div className="bg-gradient-to-br from-[#030A14] to-[#1A4996] p-5 sm:p-8 lg:p-12 rounded-[2.5rem] shadow-premium w-full mx-auto relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -z-0" />
+            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2 lg:mb-4 relative z-10">Book Your Appointment</h3>
+            <p className="text-white/80 mb-6 lg:mb-8 font-medium text-sm sm:text-base relative z-10">Schedule your visit with our expert dental team today.</p>
             
             <form onSubmit={handleSubmit} className="space-y-5 lg:space-y-6">
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-slate-700 flex items-center gap-2 uppercase tracking-wider"><User size={14} className="text-primary" /> Full Name</label>
+              <div className="space-y-2 relative z-10">
+                <label className="text-xs font-bold text-white/90 flex items-center gap-2 uppercase tracking-wider"><User size={14} className="text-[#90B4E7]" /> Full Name</label>
                 <input 
                   type="text" 
                   placeholder="Enter your name" 
                   required 
-                  className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all font-medium text-sm sm:text-base"
+                  className="w-full bg-white border border-transparent rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-slate-900 focus:ring-2 focus:ring-white/30 outline-none transition-all font-medium text-sm sm:text-base"
                 />
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6 relative z-10">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-700 flex items-center gap-2 uppercase tracking-wider"><Smartphone size={14} className="text-primary" /> Phone Number</label>
+                  <label className="text-xs font-bold text-white/90 flex items-center gap-2 uppercase tracking-wider"><Smartphone size={14} className="text-[#90B4E7]" /> Phone Number</label>
                   <input 
                     type="tel" 
                     placeholder="+91 00000 00000" 
                     required 
-                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all font-medium text-sm sm:text-base"
+                    className="w-full bg-white border border-transparent rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-slate-900 focus:ring-2 focus:ring-white/30 outline-none transition-all font-medium text-sm sm:text-base"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-700 flex items-center gap-2 uppercase tracking-wider"><Calendar size={14} className="text-primary" /> Preferred Date</label>
+                  <label className="text-xs font-bold text-white/90 flex items-center gap-2 uppercase tracking-wider"><Calendar size={14} className="text-[#90B4E7]" /> Preferred Date</label>
                   <input 
                     type="date" 
                     required 
-                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all font-medium text-sm sm:text-base"
+                    className="w-full bg-white border border-transparent rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-slate-900 focus:ring-2 focus:ring-white/30 outline-none transition-all font-medium text-sm sm:text-base"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6 relative z-10">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-700 flex items-center gap-2 uppercase tracking-wider"><Stethoscope size={14} className="text-primary" /> Select Service</label>
+                  <label className="text-xs font-bold text-white/90 flex items-center gap-2 uppercase tracking-wider"><Stethoscope size={14} className="text-[#90B4E7]" /> Select Service</label>
                   <div className="relative">
-                    <select required className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all font-medium appearance-none text-sm sm:text-base">
+                    <select required className="w-full bg-white border border-transparent rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-slate-900 focus:ring-2 focus:ring-white/30 outline-none transition-all font-medium appearance-none text-sm sm:text-base">
                       <option value="">Choose a Service</option>
                       {services.map(service => (
                         <option key={service} value={service}>{service}</option>
@@ -128,9 +129,9 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-700 flex items-center gap-2 uppercase tracking-wider"><Clock size={14} className="text-primary" /> Preferred Slot</label>
+                  <label className="text-xs font-bold text-white/90 flex items-center gap-2 uppercase tracking-wider"><Clock size={14} className="text-[#90B4E7]" /> Preferred Slot</label>
                   <div className="relative">
-                    <select required className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all font-medium appearance-none text-sm sm:text-base">
+                    <select required className="w-full bg-white border border-transparent rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-slate-900 focus:ring-2 focus:ring-white/30 outline-none transition-all font-medium appearance-none text-sm sm:text-base">
                       <option value="">Choose a Slot</option>
                       {timeSlots.map(slot => (
                         <option key={slot} value={slot}>{slot}</option>
@@ -144,7 +145,7 @@ export default function Contact() {
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className={`w-full py-4 sm:py-5 rounded-2xl font-bold text-base sm:text-lg flex items-center justify-center gap-3 transition-all duration-300 ${isSuccess ? 'bg-green-500 text-white shadow-lg' : 'bg-secondary text-white hover:bg-primary shadow-xl shadow-secondary/20 hover:scale-[1.02]'}`}
+                className={`w-full py-4 sm:py-5 rounded-2xl font-bold text-base sm:text-lg flex items-center justify-center gap-3 transition-all duration-300 relative z-10 border border-white/20 ${isSuccess ? 'bg-green-500 text-white shadow-lg' : 'bg-[#0A1A35] text-white hover:bg-[#1A4996] shadow-xl shadow-black/20 hover:scale-[1.02]'}`}
               >
                 {isSubmitting ? "Sending..." : isSuccess ? (
                   <><CheckCircle size={22} /> Appointment Booked!</>
