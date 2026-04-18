@@ -20,17 +20,17 @@ const Services = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent" />
       </div>
 
-      <div className="p-4 sm:p-5 flex flex-col flex-1">
-        <h3 className="text-lg font-bold text-secondary mb-1.5 transition-colors leading-tight">{service.title}</h3>
-        <p className="text-body-small mb-3 sm:mb-4 line-clamp-2">
+      <div className="p-4 sm:p-5 flex flex-col flex-1 bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white">
+        <h3 className="text-lg font-bold text-white mb-1.5 transition-colors leading-tight">{service.title}</h3>
+        <p className="text-white/80 text-[13px] mb-3 sm:mb-4 line-clamp-2">
           {service.description}
         </p>
 
-        <div className="mt-auto pt-1.5 border-t border-border/40">
+        <div className="mt-auto pt-1.5 border-t border-white/10">
           <Link
             href={`/services/${service.slug}`}
             scroll={true}
-            className="inline-flex items-center gap-2 text-primary text-sm font-bold hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-white text-sm font-bold hover:gap-3 transition-all"
           >
             Details
             <SearchCheck size={16} className="stroke-[2.5]" />
@@ -44,9 +44,9 @@ const Services = () => {
     <section id="services" className="section-padding">
       <div className="container-custom px-6 lg:px-12">
         <div className="mb-14 text-left">
-            <p className="text-primary font-bold text-xs uppercase tracking-[0.2em] mb-4">
+            <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] shadow-premium">
                Global Standards
-            </p>
+            </span>
              <h2 className="heading-section">
                 Comprehensive Dental Care for <span className="gradient-text italic">Your Perfect Smile</span>
              </h2>

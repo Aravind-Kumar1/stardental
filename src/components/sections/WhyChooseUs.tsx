@@ -43,9 +43,15 @@ export default function WhyChooseUs() {
           viewport={{ once: true }}
         >
           {whyChoose.map((text, i) => (
-            <motion.div key={i} className="bg-white p-6 rounded-2xl flex items-center gap-4 font-bold shadow-sm border border-slate-100" variants={fadeIn}>
-              <CheckCircle2 className="text-secondary shrink-0" size={24} />
-              <span className="text-slate-900">{text}</span>
+            <motion.div 
+              key={i} 
+              className="bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white p-6 rounded-2xl flex items-center gap-4 font-bold shadow-premium border-none hover:shadow-xl transition-all duration-300 group" 
+              variants={fadeIn}
+            >
+              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0 group-hover:scale-110 transition-transform">
+                <CheckCircle2 size={20} className="stroke-[3]" />
+              </div>
+              <span className="text-white text-base leading-tight">{text}</span>
             </motion.div>
           ))}
         </motion.div>

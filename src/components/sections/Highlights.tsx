@@ -40,13 +40,13 @@ export default function Highlights() {
           {highlights.map((text, i) => (
             <motion.div 
               key={i} 
-              className="flex items-center gap-3 bg-white px-5 py-4 rounded-2xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-lg transition-shadow duration-300" 
+              className="flex items-center gap-3 bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white px-5 py-4 rounded-2xl shadow-premium border-none hover:shadow-xl transition-all duration-300 group" 
               variants={fadeIn}
             >
-              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+              <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0 group-hover:scale-110 transition-transform">
                 <CheckCircle2 size={16} className="stroke-[3]" />
               </div>
-              <span className="text-secondary font-black text-sm lg:text-[0.9375rem] leading-tight tracking-normal">
+              <span className="font-bold text-sm lg:text-[0.9375rem] leading-tight tracking-normal">
                 {text}
               </span>
             </motion.div>

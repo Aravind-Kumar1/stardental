@@ -72,7 +72,7 @@ const slides: Slide[] = [
     badge: "Orthodontics",
     heading: (
       <>
-        <span className="text-[#1A4996]">Invisible Aligners &<br className="hidden sm:block" />Braces</span> <span className="text-black">in Manikonda</span>
+        <span className="text-[#1A4996]">Invisible Aligners & <br className="hidden sm:block" />Braces</span> <span className="text-black">in Manikonda</span>
       </>
     ),
     sub: "Clear, removable aligners and modern braces to straighten teeth comfortably—with aesthetics in mind.",
@@ -241,12 +241,16 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
     setCurrent((prev) => (prev === 0 ? currentSlides.length - 1 : prev - 1));
   }, [currentSlides.length]);
 
-  /* Auto-scroll every 8 seconds */
+  /* Faster dynamic auto-scroll: Slide 1 (5s), others (3s) */
   useEffect(() => {
     if (currentSlides.length <= 1) return;
-    const timer = setInterval(next, 8000);
-    return () => clearInterval(timer);
-  }, [next, currentSlides.length]);
+    
+    // Snappier intervals
+    const duration = current === 0 ? 5000 : 3000;
+    
+    const timer = setTimeout(next, duration);
+    return () => clearTimeout(timer);
+  }, [next, current, currentSlides.length]);
 
   const slide = currentSlides[current];
 
@@ -270,7 +274,7 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
       <section
         className={cn(
           "relative w-full overflow-hidden",
-          ["blog", "contact", "single_service"].includes(page as string) ? "h-[65vh] min-h-[480px]" : "h-[90vh] sm:h-[80vh] min-h-[640px] sm:min-h-[540px]"
+          ["blog", "contact", "single_service"].includes(page as string) ? "h-auto min-h-0 sm:min-h-[420px] max-sm:pb-0" : "h-auto sm:h-[80vh] sm:min-h-[540px] max-sm:pb-0"
         )}
         style={{ 
           background: "linear-gradient(180deg, #EEF5FF 0%, #FEFEFF 51%, #EEF5FF 95%)"
@@ -286,8 +290,8 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.7, ease: "easeInOut" }}
-            className="absolute right-0 bottom-0 sm:top-0 w-full sm:w-1/2 h-[48%] sm:h-full flex items-center justify-center sm:justify-end z-0"
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="absolute right-0 bottom-0 sm:top-0 w-full sm:w-1/2 h-[45%] sm:h-full hidden sm:flex items-center justify-center sm:justify-end z-0"
           >
             <div className="relative w-full h-full">
               {slide.imgFit === "contain" ? (
@@ -299,7 +303,7 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
                       alt={slide.imgAlt}
                       fill
                       sizes="(max-width: 640px) 50vw, 50vw"
-                      className="object-contain scale-125 sm:scale-105 origin-right sm:origin-top-right"
+                      className="object-contain scale-100 sm:scale-105 origin-center sm:origin-top-right"
                       style={{ objectPosition: "right center" }}
                       priority
                     />
@@ -322,11 +326,11 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
         </AnimatePresence>
 
         {/* ── LEFT HALF — text content ── */}
-        <div className="relative h-full flex items-start sm:items-center z-10 pointer-events-none">
+        <div className="relative h-auto sm:h-full flex items-start sm:items-center z-10 pointer-events-none">
           <div className="container-custom w-full pointer-events-auto px-6 sm:px-0">
             <div className={cn(
-              "w-full sm:w-[55%] lg:w-[65%] flex flex-col items-start text-left pr-2 lg:pr-0 z-10 pt-18 sm:pt-0",
-              ["blog", "contact", "single_service"].includes(page as string) ? "pt-12 md:pt-20 lg:pt-24" : "translate-y-0 sm:translate-y-6 lg:translate-y-12"
+              "w-full sm:w-[55%] lg:w-[65%] flex flex-col items-center sm:items-start text-center sm:text-left pr-2 lg:pr-0 z-10 pt-24 sm:pt-0",
+              ["blog", "contact", "single_service"].includes(page as string) ? "pt-20 md:pt-20 lg:pt-24" : "translate-y-0 sm:translate-y-6 lg:translate-y-12"
             )}>
               <AnimatePresence mode="wait" custom={direction}>
                 {!slide.isCustom && (
@@ -337,8 +341,8 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
                   initial="enter"
                   animate="center"
                   exit="exit"
-                  transition={{ duration: 0.55, ease: "easeInOut" }}
-                  className="flex flex-col items-start w-full pb-16 sm:pb-0"
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="flex flex-col items-center sm:items-start w-full pb-1 sm:pb-0"
                 >
                   {/* Badge */}
                   {slide.badge && (
@@ -348,17 +352,34 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
                   )}
 
                   {/* Heading — 2 lines */}
-                  <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a3a6b] leading-[1.2] mb-4 sm:mb-5 lg:whitespace-nowrap">
+                  <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a3a6b] leading-[1.2] mb-2 sm:mb-5 lg:whitespace-nowrap text-center sm:text-left">
                     {slide.heading}
                   </h1>
 
-                  {/* Sub */}
-                  <p className="text-[11px] sm:text-lg text-gray-600 leading-snug sm:leading-relaxed mb-4 sm:mb-8 max-w-xl">
+                  {/* 
+                  MOBILE IMAGE - Stacks between Heading and Buttons on mobile 
+                  */}
+                  {!slide.isCustom && (
+                    <div className="sm:hidden w-[90%] mx-auto mt-6 mb-2 flex justify-center overflow-visible">
+                      <div className="relative w-full aspect-[4/3] max-h-[220px]">
+                        <Image
+                          src={slide.img}
+                          alt={slide.imgAlt}
+                          fill
+                          className="object-contain object-center scale-[1.15]"
+                          priority
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Sub - Hidden on mobile */}
+                  <p className="hidden sm:block text-[11px] sm:text-lg text-gray-600 leading-snug sm:leading-relaxed mb-4 sm:mb-8 max-w-xl">
                     {slide.sub}
                   </p>
 
                   {/* CTAs */}
-                  <div className="flex flex-row gap-2 sm:gap-4 w-full sm:w-auto pt-6 sm:pt-2">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto pt-2 sm:pt-2">
                     {!(slide as any).hideCta1 && (
                       <Link
                         href={(slide as any).cta1Href || "/book-appointment"}
@@ -366,7 +387,7 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
                           "inline-flex items-center justify-center transition-all duration-300 active:scale-[0.98] whitespace-nowrap",
                           "bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white hover:brightness-110 shadow-premium hover:shadow-xl",
                           "rounded-none rounded-tr-[16px] sm:rounded-tr-[24px]",
-                          "px-2 sm:px-8 py-2.5 sm:py-3.5 text-[11px] sm:text-[15px] font-semibold flex-1 sm:w-[220px] tracking-tight sm:tracking-wide"
+                          "px-2 sm:px-8 py-2.5 sm:py-3.5 text-[13px] sm:text-[15px] font-semibold w-[200px] sm:w-[220px] mx-auto sm:mx-0 sm:flex-1 tracking-tight sm:tracking-wide"
                         )}
                       >
                         {(slide as any).cta1Text || "Book appointment"}
@@ -379,7 +400,7 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
                           "inline-flex items-center justify-center transition-all duration-300 active:scale-[0.98] whitespace-nowrap",
                           "bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white hover:brightness-110 shadow-premium hover:shadow-xl",
                           "rounded-none rounded-tr-[16px] sm:rounded-tr-[24px]",
-                          "px-2 sm:px-8 py-2.5 sm:py-3.5 text-[11px] sm:text-[15px] font-semibold flex-1 sm:w-[220px] tracking-tight sm:tracking-wide"
+                          "px-2 sm:px-8 py-2.5 sm:py-3.5 text-[13px] sm:text-[15px] font-semibold w-[200px] sm:w-[220px] mx-auto sm:mx-0 sm:flex-1 tracking-tight sm:tracking-wide"
                         )}
                       >
                         {(slide as any).cta2Text || "Explore services"}
@@ -397,7 +418,7 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
 
 
 
-        {/* ── CUSTOM SLIDE OVERLAY ── */}
+        {/* ── CUSTOM SLIDE OVERLAY (Doctor) ── */}
         <AnimatePresence initial={false} custom={direction}>
           {slide.isCustom && (
             <motion.div
@@ -407,40 +428,43 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.7, ease: "easeInOut" }}
-              className="absolute inset-0 w-full h-full z-10 bg-[#1A4996] flex items-center justify-center overflow-hidden"
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className={cn(
+                "relative sm:absolute inset-0 w-full z-20 bg-[#1A4996] flex items-center justify-center",
+                "h-auto sm:h-full max-sm:pb-0"
+              )}
             >
               <div className="container-custom mx-auto px-6 lg:px-12 w-full h-full">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center h-full pt-16 lg:pt-0">
+                <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:gap-12 items-center h-full pt-24 lg:pt-0">
                   
-                  {/* Left Content */}
-                  <div className="z-10 mt-8 lg:mt-0 flex flex-col justify-center">
-                    <h2 className="text-[40px] md:text-[54px] leading-tight font-extrabold text-[#F5F5F5] mb-6 whitespace-nowrap">
-                      <span className="mr-3 md:mr-4">About</span>
-                      DOCTOR
-                    </h2>
-                    <div className="text-[15px] leading-relaxed relative z-20 w-full">
-                      <p className="text-[#F5F5F5] font-normal text-[15px] md:text-base leading-[1.6]">
-                        <span className="block uppercase font-bold text-[#90B4E7] text-lg sm:text-xl tracking-wide whitespace-nowrap">PROF DR. MANJUNATHA REDDY.C</span>
-                        Specialized in Orthodontics & Comprehensive Dental Care With <span className="font-bold text-[#90B4E7]">18+</span> years of clinical & academic experience, Dr. Reddy combines advanced techniques with patient-first care to deliver long-lasting results.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Center Image */}
-                  <div className="relative h-[50vh] lg:h-[90vh] w-full flex items-end justify-center z-20 lg:-translate-y-8">
+                  {/* Center Image - Order 1 on mobile */}
+                  <div className="order-1 lg:order-2 relative h-[28vh] lg:h-[90vh] w-full flex items-end justify-center z-20 lg:-translate-y-8">
                     <Image
                       src="/hero_sec.png"
                       alt="Prof Dr. Manjunatha Reddy.C"
                       fill
                       sizes="(max-width: 1024px) 100vw, 33vw"
-                      className="object-contain object-bottom drop-shadow-2xl scale-110 lg:scale-125 origin-bottom"
+                      className="object-contain object-bottom drop-shadow-2xl scale-125 lg:scale-125 origin-bottom"
                       priority
                     />
                   </div>
 
-                  {/* Right Content */}
-                  <div className="z-10 space-y-6 pb-16 lg:pb-0 flex flex-col justify-center">
+                  {/* Left Content - Order 2 on mobile */}
+                  <div className="order-2 lg:order-1 z-10 flex flex-col justify-center text-center lg:text-left pb-6 lg:pb-0">
+                    <h2 className="text-[24px] md:text-[54px] lg:whitespace-nowrap leading-tight font-extrabold text-[#F5F5F5] mb-4">
+                      <span className="mr-2 md:mr-4">About</span>
+                      DOCTOR
+                    </h2>
+                    <div className="text-[14px] leading-relaxed relative z-20 w-full">
+                      <p className="text-[#F5F5F5] font-normal text-[14px] md:text-base leading-[1.6] max-w-lg mx-auto lg:mx-0">
+                        <span className="block uppercase font-bold text-[#90B4E7] text-base sm:text-lg lg:text-xl tracking-wide">PROF DR. MANJUNATHA REDDY.C</span>
+                        Specialized in Orthodontics & Comprehensive Dental Care With <span className="font-bold text-[#90B4E7]">18+</span> years of clinical & academic experience.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Right Content - Hidden on mobile */}
+                  <div className="hidden lg:flex order-3 lg:order-3 z-10 space-y-6 flex-col justify-center">
                     {[
                       { num: "10,000+", title: "Smiles Transformed", desc: "With Proven Results" },
                       { num: "18+", title: "Years of Clinical Experience", desc: "You Can Trust" },
@@ -478,42 +502,42 @@ const Hero = ({ page = "home", serviceContext }: { page?: "home" | "about" | "se
           transition={{ delay: 0.4, duration: 0.8 }}
           className="w-full border-t border-[#1a3a6b]/10 bg-white shadow-sm"
         >
-          <div className="container-custom py-6 sm:py-8">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-6 sm:gap-y-0 divide-x divide-gray-200">
+          <div className="container-custom py-4 sm:py-8">
+            <div className="grid grid-cols-4 sm:grid-cols-4 divide-x divide-gray-100">
 
-            <div className="flex flex-col items-center justify-center px-2 py-3">
-              <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1A4996] tracking-tight">
-                <StatCounter value={18} suffix="+" />
-              </span>
-              <span className="text-[10px] sm:text-sm text-gray-500 font-bold tracking-widest uppercase mt-2 text-center">Years Exp.</span>
-            </div>
-
-            <div className="flex flex-col items-center justify-center px-2 py-3">
-              <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1A4996] tracking-tight">
-                <StatCounter value={10} suffix="k+" />
-              </span>
-              <span className="text-[10px] sm:text-sm text-gray-500 font-bold tracking-widest uppercase mt-2 text-center">Happy Patients</span>
-            </div>
-
-            <div className="flex flex-col items-center justify-center px-2 py-3 border-l sm:border-l-0 border-gray-200">
-              <div className="flex items-baseline justify-center">
-                <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1A4996] tracking-tight">
-                  <StatCounter value={4.9} decimals={1} />
+              <div className="flex flex-col items-center justify-center px-1 py-1">
+                <span className="text-xl sm:text-4xl lg:text-5xl font-black text-[#1A4996] tracking-tight">
+                  <StatCounter value={18} suffix="+" />
                 </span>
-                <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-300 ml-1">/5</span>
+                <span className="text-[8px] sm:text-sm text-gray-500 font-bold tracking-widest uppercase mt-1 text-center leading-tight">Years Exp</span>
               </div>
-              <span className="text-[10px] sm:text-sm text-gray-500 font-bold tracking-widest uppercase mt-2 text-center">Google Rating</span>
-            </div>
 
-            <div className="flex flex-col items-center justify-center px-2 py-3 border-l border-gray-200">
-              <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1A4996] tracking-tight">
-                <StatCounter value={98} suffix="%" />
-              </span>
-              <span className="text-[10px] sm:text-sm text-gray-500 font-bold tracking-widest uppercase mt-2 text-center">Satisfaction</span>
-            </div>
+              <div className="flex flex-col items-center justify-center px-1 py-1">
+                <span className="text-xl sm:text-4xl lg:text-5xl font-black text-[#1A4996] tracking-tight">
+                  <StatCounter value={10} suffix="k+" />
+                </span>
+                <span className="text-[8px] sm:text-sm text-gray-500 font-bold tracking-widest uppercase mt-1 text-center leading-tight">Happy Pts</span>
+              </div>
 
+              <div className="flex flex-col items-center justify-center px-1 py-1">
+                <div className="flex items-baseline justify-center">
+                  <span className="text-xl sm:text-4xl lg:text-5xl font-black text-[#1A4996] tracking-tight">
+                    <StatCounter value={4.9} decimals={1} />
+                  </span>
+                  <span className="text-xs sm:text-2xl font-bold text-gray-300 ml-0.5">/5</span>
+                </div>
+                <span className="text-[8px] sm:text-sm text-gray-500 font-bold tracking-widest uppercase mt-1 text-center leading-tight">Rating</span>
+              </div>
+
+              <div className="flex flex-col items-center justify-center px-1 py-1">
+                <span className="text-xl sm:text-4xl lg:text-5xl font-black text-[#1A4996] tracking-tight">
+                  <StatCounter value={98} suffix="%" />
+                </span>
+                <span className="text-[8px] sm:text-sm text-gray-500 font-bold tracking-widest uppercase mt-1 text-center leading-tight">Success</span>
+              </div>
+
+            </div>
           </div>
-        </div>
         </motion.div>
       )}
     </div>

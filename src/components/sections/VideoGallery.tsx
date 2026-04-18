@@ -46,18 +46,14 @@ const VideoCard = ({ video }: { video: { url: string } }) => {
           playsInline
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
-          className={`w-full h-full object-cover transition-transform duration-700 ${isPlaying ? "scale-100" : "group-hover:scale-105"}`}
+          className="w-full h-full object-cover"
         />
         
-        {/* Soft shadow tinting while paused */}
-        <div 
-          className="absolute inset-0 bg-black/30 pointer-events-none transition-opacity duration-300"
-          style={{ opacity: isPlaying ? 0 : 1 }}
-        />
+
         
         {/* Play/Pause Center Action Button Overlay */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className={`w-14 h-14 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center border border-white/50 text-white transition-all duration-300 ${isPlaying ? "opacity-0 group-hover:opacity-100 scale-90" : "opacity-100 scale-100 group-hover:scale-110"}`}>
+          <div className={`w-14 h-14 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center border border-white/50 text-white transition-all duration-300 ${isPlaying ? "opacity-0" : "opacity-100"}`}>
             {isPlaying ? <Pause size={24} className="fill-white" /> : <Play size={24} className="fill-white ml-1" />}
           </div>
         </div>
@@ -87,7 +83,7 @@ export default function VideoGallery() {
         <div className="absolute right-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
         <div className="overflow-hidden w-full flex">
-          <div className="flex gap-6 w-max animate-marquee group-hover:[animation-play-state:paused]">
+          <div className="flex gap-6 w-max animate-marquee">
             {[...videos, ...videos].map((video, idx) => (
               <VideoCard key={idx} video={video} />
             ))}
