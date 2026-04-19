@@ -35,6 +35,21 @@ const About = () => {
                 />
               </div>
             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="relative z-10 max-w-xl mx-auto lg:mx-0 mt-6 flex justify-center lg:justify-end px-4"
+            >
+              <Image 
+                src="/dental_sign.png" 
+                alt="Doctor Signature" 
+                width={180} 
+                height={70} 
+                className="object-contain opacity-90 drop-shadow-sm filter contrast-125" 
+              />
+            </motion.div>
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl z-0" />
             <div className="absolute -bottom-20 -right-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl z-0" />
           </div>

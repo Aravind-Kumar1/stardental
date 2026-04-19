@@ -160,6 +160,21 @@ export default function AboutFull() {
                   className="object-cover"
                 />
               </div>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="relative z-10 mt-6 flex justify-center lg:justify-end px-4 w-full"
+              >
+                <Image 
+                  src="/dental_sign.png" 
+                  alt="Doctor Signature" 
+                  width={180} 
+                  height={70} 
+                  className="object-contain opacity-90 drop-shadow-sm filter contrast-125" 
+                />
+              </motion.div>
               <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/15 rounded-full blur-3xl -z-0" />
             </motion.div>
             <div className="w-full lg:w-[44%]">
