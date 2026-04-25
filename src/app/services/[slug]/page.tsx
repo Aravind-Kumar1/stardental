@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 import FAQ from "@/components/sections/FAQ";
 import Hero from "@/components/sections/Hero";
 
-const PHONE_DISPLAY = "+91 88674 62440";
-const PHONE_HREF = "tel:+918867462440";
+const PHONE_DISPLAY = "+91 90302 71023";
+const PHONE_HREF = "tel:+919030271023";
 
 /** Pre-render every service page at build time so navigation is static HTML, not on-demand SSR. */
 export function generateStaticParams() {

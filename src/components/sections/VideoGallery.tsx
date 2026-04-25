@@ -5,15 +5,39 @@ import { motion } from "framer-motion";
 import { Play, Pause } from "lucide-react";
 
 const videos = [
-  { type: "cloudinary", url: "https://res.cloudinary.com/dnf6zexsv/video/upload/v1776363850/vid_4_w4qztr.mp4" },
-  { type: "cloudinary", url: "https://res.cloudinary.com/dnf6zexsv/video/upload/v1776363850/Your_mouth_gives_early_signs_-_don_t_ignore_them.Bleeding_gums_small_cavities_and_poor_oral_hy_hgkcgo.mp4" },
-  { type: "cloudinary", url: "https://res.cloudinary.com/dnf6zexsv/video/upload/v1776363850/vide_3_ujf4kz.mp4" },
-  { type: "cloudinary", url: "https://res.cloudinary.com/dnf6zexsv/video/upload/v1776363849/One_of_the_most_common_questions_I_get_is_-How_long_does_a_crown_or_bridge_lastWith_proper_care_swsyvh.mp4" },
-  { type: "cloudinary", url: "https://res.cloudinary.com/dnf6zexsv/video/upload/v1776455449/dental_video_plvejz.mp4" },
-  { type: "cloudinary", url: "https://res.cloudinary.com/dnf6zexsv/video/upload/v1776455443/fourth_video_yky2el.mp4" },
+  { 
+    type: "cloudinary", 
+    url: "https://res.cloudinary.com/dnf6zexsv/video/upload/v1776363850/vid_4_w4qztr.mp4",
+    title: "Surgical Precision"
+  },
+  { 
+    type: "cloudinary", 
+    url: "https://res.cloudinary.com/dnf6zexsv/video/upload/v1776363850/Your_mouth_gives_early_signs_-_don_t_ignore_them.Bleeding_gums_small_cavities_and_poor_oral_hy_hgkcgo.mp4",
+    title: "Oral Warning Signs"
+  },
+  { 
+    type: "cloudinary", 
+    url: "https://res.cloudinary.com/dnf6zexsv/video/upload/v1776363850/vide_3_ujf4kz.mp4",
+    title: "Perfect Alignment"
+  },
+  { 
+    type: "cloudinary", 
+    url: "https://res.cloudinary.com/dnf6zexsv/video/upload/v1776363849/One_of_the_most_common_questions_I_get_is_-How_long_does_a_crown_or_bridge_lastWith_proper_care_swsyvh.mp4",
+    title: "Crown & Bridge Care"
+  },
+  { 
+    type: "cloudinary", 
+    url: "https://res.cloudinary.com/dnf6zexsv/video/upload/v1776455449/dental_video_plvejz.mp4",
+    title: "Advanced Technology"
+  },
+  { 
+    type: "cloudinary", 
+    url: "https://res.cloudinary.com/dnf6zexsv/video/upload/v1776455443/fourth_video_yky2el.mp4",
+    title: "Clinical Excellence"
+  },
 ];
 
-const VideoCard = ({ video, onPlayChange }: { video: { url: string }, onPlayChange: (playing: boolean) => void }) => {
+const VideoCard = ({ video, onPlayChange }: { video: { url: string, title?: string }, onPlayChange: (playing: boolean) => void }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -37,9 +61,17 @@ const VideoCard = ({ video, onPlayChange }: { video: { url: string }, onPlayChan
   return (
     <div
       onClick={handleToggleClick}
-      className="w-[200px] sm:w-[240px] md:w-[260px] lg:w-[280px] rounded-[1.5rem] overflow-hidden border border-border/60 bg-white shadow-xl shadow-blue-900/5 shrink-0 transform-gpu cursor-pointer group/card relative"
+      className="w-[220px] sm:w-[260px] md:w-[280px] lg:w-[300px] shrink-0 transform-gpu cursor-pointer group/card flex flex-col gap-3"
     >
-      <div className="relative h-[320px] sm:h-[380px] lg:h-[420px] bg-black overflow-hidden">
+      {/* Video Title Above */}
+      <div className="px-2">
+        <p className="text-secondary font-bold text-sm sm:text-base leading-tight group-hover/card:text-primary transition-colors duration-300">
+          {video.title}
+        </p>
+        <div className="w-8 h-1 bg-primary mt-2 rounded-full scale-x-0 group-hover/card:scale-x-100 transition-transform duration-300 origin-left" />
+      </div>
+
+      <div className="relative h-[380px] sm:h-[420px] lg:h-[480px] rounded-[2rem] bg-black overflow-hidden border border-border/60 bg-white shadow-xl shadow-blue-900/5">
         <video
           ref={videoRef}
           src={video.url}
@@ -69,7 +101,7 @@ const VideoCard = ({ video, onPlayChange }: { video: { url: string }, onPlayChan
       </div>
     </div>
   );
-};
+}
 
 export default function VideoGallery() {
   const [activeMediaCount, setActiveMediaCount] = useState(0);
@@ -81,25 +113,26 @@ export default function VideoGallery() {
   return (
     <section id="video-gallery" className="section-padding overflow-hidden bg-background">
       <div className="container-custom px-6 relative z-10">
-        <div className="flex justify-between items-end mb-8 max-w-7xl mx-auto">
-          <div>
+        <div className="flex justify-between items-end mb-8 max-w-7xl mx-auto text-center w-full flex-col md:flex-row md:text-left gap-4">
+          <div className="w-full">
             <p className="text-primary font-bold text-xs uppercase tracking-widest mb-3">
               Clinical Insights
             </p>
             <h2 className="heading-section mb-0">
-              Watch Our Latest Videos
+              Transforming <span className="gradient-text">Smiles</span> with Expert Care
             </h2>
+            <p className="text-muted-foreground mt-2 max-w-md mx-auto md:mx-0">Explore our treatments and patient transformations through our clinical highlights.</p>
           </div>
         </div>
       </div>
 
       <div className="w-full relative mt-10">
-        <div className="absolute left-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-        <div className="relative flex overflow-hidden group/marquee w-full py-6">
+        <div className="relative flex overflow-hidden group/marquee w-full py-10">
           <div 
-            className="flex gap-4 md:gap-6 animate-marquee group-hover/marquee:[animation-play-state:paused]"
+            className="flex gap-6 md:gap-8 animate-marquee group-hover/marquee:[animation-play-state:paused]"
             style={{ animationPlayState: activeMediaCount > 0 ? 'paused' : undefined }}
           >
             {[...videos, ...videos].map((video, idx) => (

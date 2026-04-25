@@ -27,17 +27,23 @@ const CTA = () => {
               </p>
               
               <div className="mt-12 flex flex-wrap justify-start gap-12 text-slate-500 font-medium hidden lg:flex">
-                  <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-primary border border-white/10">
+                  <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-primary border border-white/10 shrink-0">
                         <Phone size={18} />
                       </div>
-                      <span className="text-white font-bold text-lg">+91 90302 71023</span>
+                      <div className="flex flex-col">
+                        <span className="text-white font-bold text-lg leading-tight">+91 90302 71023</span>
+                        <span className="text-white font-bold text-lg leading-tight mt-1">+91 74168 60888</span>
+                      </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-primary border border-white/10">
+                  <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-primary border border-white/10 shrink-0">
                         <Calendar size={18} />
                       </div>
-                      <span className="text-white font-bold text-lg">Mon-Sat: 09:00 - 20:00</span>
+                      <div className="flex flex-col">
+                        <span className="text-white font-bold text-base leading-tight">Mon - Sat: 10AM - 2PM, 4PM - 8PM</span>
+                        <span className="text-white font-bold text-base leading-tight mt-1">Sun: 10AM - 1PM</span>
+                      </div>
                   </div>
               </div>
             </div>
@@ -53,7 +59,7 @@ const CTA = () => {
               </Link>
               
               <a
-                href="https://wa.me/918867462440"
+                href="https://wa.me/919030271023"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-xl transition-all active:scale-[0.98] border border-slate-200 bg-white text-secondary hover:bg-slate-50 px-6 py-3.5 lg:px-10 lg:py-5 text-base lg:text-xl font-bold w-full sm:min-w-[320px] h-14 lg:h-16 shadow-sm max-w-md"

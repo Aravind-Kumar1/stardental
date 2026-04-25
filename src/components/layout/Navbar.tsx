@@ -112,11 +112,17 @@ const Navbar = () => {
           })}
         </div>
 
-        <div className="hidden lg:flex items-center gap-4">
-          <a href="tel:+919030271023" className="flex items-center gap-2 text-secondary font-semibold hover:text-primary transition-colors mr-4">
-            <Phone size={18} className="fill-primary text-primary" />
-            <span>+91 90302 71023</span>
-          </a>
+        <div className="hidden lg:flex items-center gap-6">
+          <div className="flex flex-col items-end mr-4">
+            <a href="tel:+919030271023" className="flex items-center gap-2 text-secondary text-sm font-semibold hover:text-primary transition-colors">
+              <Phone size={14} className="fill-primary text-primary" />
+              <span>+91 90302 71023</span>
+            </a>
+            <a href="tel:+917416860888" className="flex items-center gap-2 text-secondary text-sm font-semibold hover:text-primary transition-colors">
+              <Phone size={14} className="fill-primary text-primary" />
+              <span>+91 74168 60888</span>
+            </a>
+          </div>
           <Link
             href="/book-appointment"
             className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white shadow-premium hover:shadow-xl hover:brightness-110 px-6 py-3 text-base font-medium gap-2 transition-all duration-300 active:scale-[0.98]"
@@ -194,6 +200,10 @@ const Navbar = () => {
             <a href="tel:+919030271023" className="flex items-center gap-3 text-secondary font-semibold">
               <Phone size={20} className="text-primary" />
               +91 90302 71023
+            </a>
+            <a href="tel:+917416860888" className="flex items-center gap-3 text-secondary font-semibold">
+              <Phone size={20} className="text-primary" />
+              +91 74168 60888
             </a>
             <Link
               href="/book-appointment"

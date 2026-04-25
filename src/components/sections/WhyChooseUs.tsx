@@ -7,10 +7,10 @@ import { CheckCircle2 } from "lucide-react";
 const whyChoose = [
   "5-Star Rated Dental Clinic in Hyderabad",
   "Experienced & Skilled Dental Team",
-  "Advanced Equipment & Laser Treatments",
+  "Uses Advanced Equipments and Advance Technologys",
   "Hygienic & Safe Environment",
   "Friendly & Patient-Centered Approach",
-  "Trusted by Hundreds of Patients"
+  "Trusted by many Patients"
 ];
 
 export default function WhyChooseUs() {
