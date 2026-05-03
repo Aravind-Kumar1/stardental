@@ -86,7 +86,7 @@ const About = () => {
               </ul>
 
               <Link
-                href="/about"
+                href="/about-us"
                 className={cn(
                   "inline-flex items-center justify-center gap-2 transition-all active:scale-[0.98]",
                   "bg-gradient-to-r from-[#030A14] to-[#1A4996] text-white rounded-none rounded-tr-[24px]",
